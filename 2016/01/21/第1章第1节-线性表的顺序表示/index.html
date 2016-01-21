@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="数据结构与算法的第1章第1节，主要讲述了线性表的顺序表示，然后讲解了顺序表的插入，删除，查找操作，并对其时间复杂度进行了详细分析…">
+<meta name="description" content="摘要：本小节主要讲述了线性表的顺序表示，然后讲解了顺序表的插入，删除，查找操作，并对其时间复杂度进行了详细分析…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第1章第1节 线性表的顺序表示">
 <meta property="og:url" content="http://yoursite.com/2016/01/21/第1章第1节-线性表的顺序表示/index.html">
 <meta property="og:site_name" content="呃，无名' s Blog">
-<meta property="og:description" content="数据结构与算法的第1章第1节，主要讲述了线性表的顺序表示，然后讲解了顺序表的插入，删除，查找操作，并对其时间复杂度进行了详细分析…">
-<meta property="og:updated_time" content="2016-01-21T14:24:06.135Z">
+<meta property="og:description" content="摘要：本小节主要讲述了线性表的顺序表示，然后讲解了顺序表的插入，删除，查找操作，并对其时间复杂度进行了详细分析…">
+<meta property="og:updated_time" content="2016-01-21T14:35:10.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第1章第1节 线性表的顺序表示">
-<meta name="twitter:description" content="数据结构与算法的第1章第1节，主要讲述了线性表的顺序表示，然后讲解了顺序表的插入，删除，查找操作，并对其时间复杂度进行了详细分析…">
+<meta name="twitter:description" content="摘要：本小节主要讲述了线性表的顺序表示，然后讲解了顺序表的插入，删除，查找操作，并对其时间复杂度进行了详细分析…">
 
 
 
@@ -252,7 +252,7 @@
       
 
       
-        <p>数据结构与算法的第1章第1节，主要讲述了线性表的顺序表示，然后讲解了顺序表的插入，删除，查找操作，并对其时间复杂度进行了详细分析…</p>
+        <p>摘要：本小节主要讲述了线性表的顺序表示，然后讲解了顺序表的插入，删除，查找操作，并对其时间复杂度进行了详细分析…</p>
 <a id="more"></a>
 <h1 id="u4E00-_u987A_u5E8F_u8868_u7684_u5B9A_u4E49"><a href="#u4E00-_u987A_u5E8F_u8868_u7684_u5B9A_u4E49" class="headerlink" title="一.顺序表的定义"></a>一.顺序表的定义</h1><p>线性表的顺序存储有称之为顺序表。它是用一组地址连续的存储单元，依次存储线性表的数据元素，从而使得逻辑上相邻的两个元素在物理上也相邻。第一个元素存储在线性表的起始位置，第i个元素的存储位置后面紧接着存储的时第i+1个元素。<br>因此，顺序表的特点时表中元素的逻辑顺序与物理顺序相同。<br>这里，我们假定元素类型为<code>ElemType</code>，线性表的顺序存储类型则可以描述为：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MaxSize <span class="number">50</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">	ElemType data[MaxSize];</span><br><span class="line">	<span class="keyword">int</span> length;</span><br><span class="line">&#125;SqList;</span><br></pre></td></tr></table></figure>
