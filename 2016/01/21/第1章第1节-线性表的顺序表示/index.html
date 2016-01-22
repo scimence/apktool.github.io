@@ -61,9 +61,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="第1章第1节 线性表的顺序表示">
 <meta property="og:url" content="http://yoursite.com/2016/01/21/第1章第1节-线性表的顺序表示/index.html">
-<meta property="og:site_name" content="呃，无名' s Blog">
+<meta property="og:site_name" content="白日梦想家">
 <meta property="og:description" content="摘要：本小节主要讲述了线性表的顺序表示，然后讲解了顺序表的插入，删除，查找操作，并对其时间复杂度进行了详细分析…">
-<meta property="og:updated_time" content="2016-01-21T14:35:10.779Z">
+<meta property="og:updated_time" content="2016-01-22T04:17:46.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第1章第1节 线性表的顺序表示">
 <meta name="twitter:description" content="摘要：本小节主要讲述了线性表的顺序表示，然后讲解了顺序表的插入，删除，查找操作，并对其时间复杂度进行了详细分析…">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> 第1章第1节 线性表的顺序表示 | 呃，无名' s Blog </title>
+  <title> 第1章第1节 线性表的顺序表示 | 白日梦想家 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -113,7 +113,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">呃，无名' s Blog</span>
+      <span class="site-title">白日梦想家</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -165,6 +165,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
@@ -203,7 +213,7 @@
   
   
 
-  <article class="post post-type-数据结构和算法 " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -273,12 +283,12 @@
 <h2 id="2-2_u5220_u9664_u64CD_u4F5C"><a href="#2-2_u5220_u9664_u64CD_u4F5C" class="headerlink" title="2.2删除操作"></a>2.2删除操作</h2><p>删除顺序表L中第i($1 \le i \le L.length$)个位置的元素，成功返回0，否则返回-1，并将被删除的元素采用指针调用的方式返回。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ListDelete</span><span class="params">(SqList *L, <span class="keyword">int</span> i, ElemType *e)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;<span class="number">0</span>||i&gt;L-&gt;length)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"The position over the border! \n"</span>);</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	*e=L-&gt;data[i-<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;L-&gt;length;j++)&#123;</span><br><span class="line">		L-&gt;data[j-<span class="number">1</span>]=L-&gt;data[j];</span><br><span class="line">	&#125;</span><br><span class="line">	L-&gt;length--;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>分析下时间复杂度：<br>最佳情况：删除表尾元素（即i=n），无需移动任何元素，则时间复杂度为$O(1)$；<br>最坏情况：删除表头元素（即i=1），需要移动除第一个元素外的所有元素，即移位语句执行n次，事件复杂度为$O(n)$；<br>平均情况：假设$p_i(p_i=\frac{1}{n})$是删除第i个位置上节点的概率，则在长度为n的线性表中删除一个节点时所需移动节点的平均次数为</p>
-<p>$$\sum_{i=1}^n p<em>i(n-i)=\sum</em>{i=1}^n\frac{1}{n}(n-i)=\frac{1}{n}\sum_{i=1}^{n}(n-i)=\frac{1}{n}\frac{n(n-1)}{2}=\frac{n-1}{2}$$</p>
+<p>$\sum_{i=1}^n p<em>i(n-i)=\sum</em>{i=1}^n\frac{1}{n}(n-i)=\frac{1}{n}\sum_{i=1}^{n}(n-i)=\frac{1}{n}\frac{n(n-1)}{2}=\frac{n-1}{2}$</p>
 <p>因此，线性删除算法的平均事件复杂度为$O(n)$。</p>
 <h2 id="2-3_u6309_u503C_u67E5_u627E_uFF08_u987A_u5E8F_u67E5_u627E_uFF09"><a href="#2-3_u6309_u503C_u67E5_u627E_uFF08_u987A_u5E8F_u67E5_u627E_uFF09" class="headerlink" title="2.3按值查找（顺序查找）"></a>2.3按值查找（顺序查找）</h2><p>在顺序表L中查找第一个元素值等于e的元素，并返回其下标，否则返回-1.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">LocateElem</span><span class="params">(SqList *L, ElemType e)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;L-&gt;length;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(L-&gt;data[i]==e)&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"The elem is found!The Postion is %d !"</span>, i+<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"The elem isn't found!\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>最佳情况：需要查找的元素就在表头，仅需比较一次，其时间复杂度为$O(1)$；<br>最坏情况：需要查找的元素就在表尾，需要比较n次，时间复杂度为$O(n)$；<br>平均情况：假设$p_i(p_i=\frac{1}{n})$是查找第i个位置上节点的概率，则在长度为n的线性表中查找值为e时所需比较的平均次数为</p>
-<p>$$\sum_{i=1}^n p<em>i\times i=\sum</em>{i=1}^n\frac{1}{n}\times i=\frac{1}{n}\sum_{i=1}^{n}(n-i)=\frac{1}{n}\times \frac{n(n+1)}{2}=\frac{n+1}{2}$$</p>
+<p>$\sum_{i=1}^n p<em>i\times i=\sum</em>{i=1}^n\frac{1}{n}\times i=\frac{1}{n}\sum_{i=1}^{n}(n-i)=\frac{1}{n}\times \frac{n(n+1)}{2}=\frac{n+1}{2}$</p>
 <p>因此，线性删除算法的平均事件复杂度为$O(n)$。</p>
 
       
@@ -372,7 +382,7 @@
                src="http://litten.github.io/assets/blogImg/litten.png"
                alt="呃，无名" />
           <p class="site-author-name" itemprop="name">呃，无名</p>
-          <p class="site-description motion-element" itemprop="description">吃饭睡觉打豆豆 | 喂，豆豆别调皮...</p>
+          <p class="site-description motion-element" itemprop="description">吃饭睡觉打豆豆 | 喂，豆豆别跑啊...</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -383,10 +393,10 @@
           </div>
 
           <div class="site-state-item site-state-categories">
-            
+            <a href="/categories">
               <span class="site-state-item-count">0</span>
               <span class="site-state-item-name">分类</span>
-              
+              </a>
           </div>
 
           <div class="site-state-item site-state-tags">
