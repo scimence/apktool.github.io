@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="数据结构,算法," />
+  <meta name="keywords" content="数据结构,算法,线性表," />
 
 
 
@@ -57,18 +57,18 @@
 
 
 
-<meta name="description" content="摘要：本小节为数据结构与算法的绪论，主要说明了数据结构的基本概念，三要素等，算法的定义，特性，效率的度量方式等……">
+<meta name="description" content="摘要：线性表的定义，特点，分类，基本操作等…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="绪论">
-<meta property="og:url" content="http://yoursite.com/2016/01/21/绪论/index.html">
+<meta property="og:title" content="第1章线性表">
+<meta property="og:url" content="http://yoursite.com/2016/01/21/Data structure and Algorithm/第1章线性表/index.html">
 <meta property="og:site_name" content="白日梦想家">
-<meta property="og:description" content="摘要：本小节为数据结构与算法的绪论，主要说明了数据结构的基本概念，三要素等，算法的定义，特性，效率的度量方式等……">
-<meta property="og:image" content="http://img.blog.csdn.net/20160105104810486">
-<meta property="og:image" content="http://img.blog.csdn.net/20160105123947606">
-<meta property="og:updated_time" content="2016-01-22T04:18:01.982Z">
+<meta property="og:description" content="摘要：线性表的定义，特点，分类，基本操作等…">
+<meta property="og:image" content="http://img.blog.csdn.net/20160114121938555">
+<meta property="og:image" content="http://img.blog.csdn.net/20160105123651500">
+<meta property="og:updated_time" content="2016-01-22T04:17:54.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="绪论">
-<meta name="twitter:description" content="摘要：本小节为数据结构与算法的绪论，主要说明了数据结构的基本概念，三要素等，算法的定义，特性，效率的度量方式等……">
+<meta name="twitter:title" content="第1章线性表">
+<meta name="twitter:description" content="摘要：线性表的定义，特点，分类，基本操作等…">
 
 
 
@@ -86,7 +86,7 @@
   };
 </script>
 
-  <title> 绪论 | 白日梦想家 </title>
+  <title> 第1章线性表 | 白日梦想家 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -226,7 +226,7 @@
             
             
               
-                绪论
+                第1章线性表
               
             
           </h1>
@@ -238,7 +238,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-21T19:56:56+08:00" content="2016-01-21">
+            <time itemprop="dateCreated" datetime="2016-01-21T20:32:13+08:00" content="2016-01-21">
               2016-01-21
             </time>
           </span>
@@ -264,61 +264,23 @@
       
 
       
-        <p>摘要：本小节为数据结构与算法的绪论，主要说明了数据结构的基本概念，三要素等，算法的定义，特性，效率的度量方式等……</p>
+        <p>摘要：线性表的定义，特点，分类，基本操作等…</p>
 <a id="more"></a>
-<p>数据结构是指相互之间存在着一种或多种关系的数据元素的集合和该集合中数据元素之间的关系组成。数据结构包括三个方面的内容，数据的逻辑结构，数据的存储结构和数据的运算。数据的逻辑结构和存储（物理）结构是密不可分的两个方面，一个算法的设计取决于所选定的逻辑结构，而算法的实现依赖于所采用的存储结构。</p>
-<h1 id="u4E00-_u6570_u636E_u7ED3_u6784_u7684_u4E09_u8981_u7D20"><a href="#u4E00-_u6570_u636E_u7ED3_u6784_u7684_u4E09_u8981_u7D20" class="headerlink" title="一.数据结构的三要素"></a>一.数据结构的三要素</h1><h2 id="1-1_u6570_u636E_u7684_u903B_u8F91_u7ED3_u6784"><a href="#1-1_u6570_u636E_u7684_u903B_u8F91_u7ED3_u6784" class="headerlink" title="1.1数据的逻辑结构"></a>1.1数据的逻辑结构</h2><p>数据的逻辑结构是指数据元素之间的逻辑关系，即从逻辑关系上描述数据，它与数据的存储无关，独立于计算机。<br>常见的逻辑结构主要分为线性关系和非线性关系，其中线性表是典型的线性结构；集合，二叉树，图时典型的非线性结构</p>
+<p>在<a href="http://blog.csdn.net/u013595419/article/details/50461536" target="_blank" rel="external">绪论</a>中，我们了解到数据结构主要由三部分组成——数据的逻辑结构；数据的存储（物理）结构；数据的运算。如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160114121938555" alt="逻辑结构"></p>
+<p>这章我们开始讲解数据的逻辑结构中线性结构的第一个部分——一般线性表。</p>
+<h1 id="u4E00-_u7EBF_u6027_u8868_u7684_u5B9A_u4E49"><a href="#u4E00-_u7EBF_u6027_u8868_u7684_u5B9A_u4E49" class="headerlink" title="一.线性表的定义"></a>一.线性表的定义</h1><p>线性表是具有相同数据类型的n(n≥0)个数据元素的有限序列。其中n为表长，当n=0时该线性表是一个空表。若用L命名线性表，则其一般表示如下：<br>$L=(a_1,a_2,…a<em>i,a</em>{i+1},…,a_n)$<br>其中，$a_1$是唯一的“第一个”数据元素，又称为表头元素；$a_n$是唯一的“最后一个”数据元素，又称为表尾元素。除第一个元素外，每个元素有且仅有一个直接前驱；除最后一个元素外，每个元素有且仅有一个直接后继。</p>
+<h1 id="u4E8C-_u7EBF_u6027_u8868_u7684_u7279_u70B9"><a href="#u4E8C-_u7EBF_u6027_u8868_u7684_u7279_u70B9" class="headerlink" title="二.线性表的特点"></a>二.线性表的特点</h1><p>线性表常见的特点如下</p>
 <ul>
-<li>线性结构：数据结构中的元素存在一对一的相互关系；</li>
-<li>树形结构：数据结构中的元素存在一对多的相互关系；</li>
-<li>图（网）状结构：数据结构中的元素存在多对多的相互关系</li>
+<li>表中元素的个数有限</li>
+<li>表中元素具有逻辑上的顺序性，在序列中各元素排列有先后次序；</li>
+<li>表中元素都是数据元素，每一个表元素都是单个元素；</li>
+<li>表中元素的数据类型都相同，这意味着每一个表元素占有相同数量的存储空间；</li>
+<li>表中元素具有抽象性，就是说，仅讨论表元素之间的逻辑关系，不考虑元素究竟表示什么内容。</li>
 </ul>
-<h2 id="1-2__u6570_u636E_u7684_u5B58_u50A8_uFF08_u7269_u7406_uFF09_u7ED3_u6784"><a href="#1-2__u6570_u636E_u7684_u5B58_u50A8_uFF08_u7269_u7406_uFF09_u7ED3_u6784" class="headerlink" title="1.2 数据的存储（物理）结构"></a>1.2 数据的存储（物理）结构</h2><p>数据的存储结构是指数据结构在计算机中的表示（又称映像），也称为物理结构。它包括数据元素的表示和关系的表示。数据的存储结构是逻辑结构用计算机语言的实现，依赖于计算机语言。<br>常见的物理结构主要有：顺序存储，链式存储，索引存储和散列存储。</p>
-<ul>
-<li><p>顺序存储：把逻辑上相邻的元素存储在物理位置相邻的存储单元里，元素间的逻辑关系由存储单元的邻接关系来体现，由此得到的存储表示称为顺序存储结构。顺序存储结构是一种最基本的存储表示方法，通常借助于程序设计语言中的数组来实现。<br>优点是可以实现随机存取，每个元素占用最少的存储空间；<br>缺点是只能使用相邻的一整块存储单元，因此可能产生较多的外部碎片。</p>
-</li>
-<li><p>链接存储：不要求逻辑上相邻的元素在物理位置上亦相邻，元素间的逻辑关系是由附加的指针字段表示的。由此得到的存储表示称为链式存储结构，链式存储结构通常借助于程序设计语言中的指针类型来实现。<br>优点是不会出现碎片现象，充分利用所有存储单元；<br>缺点是每个元素因存储指针而占用额外的存储空间，并且只能实现顺序存取。</p>
-</li>
-<li><p>索引存储：在存储元素信息的同时，还建立附加的索引表来标识元素的地址。索引表中的每一项称为索引项，索引项的一般形式是：（关键字，地址）。<br>优点是检索速度快；<br>缺点是增加了附加的索引表，会占用较多的存储空间，此外，在增加和删除数据时要修改索引表，因此会花费较多的时间。</p>
-</li>
-<li><p>散列存储：根据元素的关键字直接计算出该元素的存储地址，又称为Hash存储。<br>优点是检索，增加和删除元素的操作都很快；<br>缺点是如果选择的散列函数不当，会造成元素存储单元的冲突，而解决冲突又会增加额外的时间和空间开销。</p>
-</li>
-</ul>
-<h2 id="1-3_u6570_u636E_u7684_u8FD0_u7B97"><a href="#1-3_u6570_u636E_u7684_u8FD0_u7B97" class="headerlink" title="1.3数据的运算"></a>1.3数据的运算</h2><p>施加在数据上的运算包括运算的定义和实现。运算的定义是针对于逻辑结构的，指出运算的功能；运算的实现时针对于存储结构的，指出运算的具体步骤。</p>
-<h1 id="u4E8C-_u6570_u636E_u7ED3_u6784_u4E09_u8981_u7D20_u5C0F_u7ED3"><a href="#u4E8C-_u6570_u636E_u7ED3_u6784_u4E09_u8981_u7D20_u5C0F_u7ED3" class="headerlink" title="二.数据结构三要素小结"></a>二.数据结构三要素小结</h1><p>如下图所示：</p>
-<p><img src="http://img.blog.csdn.net/20160105104810486" alt="数据结构小结"></p>
-<h1 id="u4E09-_u7B97_u6CD5"><a href="#u4E09-_u7B97_u6CD5" class="headerlink" title="三.算法"></a>三.算法</h1><h2 id="3-1_u7B97_u6CD5_u7684_u57FA_u672C_u6982_u5FF5"><a href="#3-1_u7B97_u6CD5_u7684_u57FA_u672C_u6982_u5FF5" class="headerlink" title="3.1算法的基本概念"></a>3.1算法的基本概念</h2><p>算法（Algorithm）是对特定问题求解步骤的一种描述，是指令的有限序列，其中每一条指令表示一个或多个操作。</p>
-<h2 id="3-2_u7B97_u6CD5_u7684_u7279_u6027"><a href="#3-2_u7B97_u6CD5_u7684_u7279_u6027" class="headerlink" title="3.2算法的特性"></a>3.2算法的特性</h2><ol>
-<li>有穷性：一个算法必须总是（对于任何合法的输入值）在执行有限步骤后结束，且每一步都可在有穷时间内完成。</li>
-<li>确定性：算法的每一条指令必须有确切的含义，读者理解时不会产生二义性。即对相同的输入只能得到相同的输出。</li>
-<li>可行性：一个算法是可执行的，即算法中描述的操作都可以通过已经实现的基本运算执行有限次来实现（也称之为有效性）。</li>
-<li>输入：一个算法有零个或多个输入，这些输入取自某个特定的对象的集合。</li>
-<li>输出：一个算法有一个或多个输出，这些输出是同输入有着某种特定关系的量。</li>
-</ol>
-<h2 id="3-3_u7B97_u6CD5_u7684_u76EE_u6807"><a href="#3-3_u7B97_u6CD5_u7684_u76EE_u6807" class="headerlink" title="3.3算法的目标"></a>3.3算法的目标</h2><ol>
-<li>正确性：算法应当能够正确的解决所需求解的问题。</li>
-<li>可读性：算法应当具有良好的可读性，以助于人们理解。</li>
-<li>健壮性：当输入非法数据时，算法也能适当的做出反应或进行处理，而不会产生莫名其妙的输出结果。</li>
-<li>效率与低存储量需求：效率是指算法执行的时间，存储量是指算法执行过程中所需的最大存储空间，这两者均与问题的规模有关。 </li>
-</ol>
-<h2 id="3-4_u7B97_u6CD5_u6548_u7387_u7684_u5EA6_u91CF"><a href="#3-4_u7B97_u6CD5_u6548_u7387_u7684_u5EA6_u91CF" class="headerlink" title="3.4算法效率的度量"></a>3.4算法效率的度量</h2><p>算法效率的度量时通过时间复杂度和空间复杂度来描述的。</p>
-<h3 id="3-4-1_u65F6_u95F4_u590D_u6742_u5EA6"><a href="#3-4-1_u65F6_u95F4_u590D_u6742_u5EA6" class="headerlink" title="3.4.1时间复杂度"></a>3.4.1时间复杂度</h3><p>算法的时间复杂度是指算法需要消耗的时间资源。一般来说，计算机算法是问题规模n的函数$f(n)$，算法的时间复杂度也因此记做$T(n)=O(f(n))$,算法执行时间的增长率与$f(n)$的增长率正相关，称作渐近时间复杂度，简称时间复杂度。<br>这里应该注意到时间复杂度有三种：</p>
-<ul>
-<li>最坏时间复杂度：最坏情况下，算法的时间复杂度；</li>
-<li>平均时间复杂度：所有可能输入实例在等概率出现的情况下，算法的期望运行时间；</li>
-<li>最佳时间复杂度：在最佳情况下，算法的时间复杂度。</li>
-</ul>
-<p>此处应该注意，我们一般所说的时间复杂度其实是指最坏时间复杂度。<br>在考虑一个算法的时间复杂度时，有以下两条规则：</p>
-<blockquote>
-<p>a) 加法规则<br>$ T(n)=T1(n)+T2(n)=O(f(n))+O(g(n))=O(max(f(n),g(n))) $<br>b) 乘法规则<br>$T(n)=T1(n)×T2(n)=O(f(n))×O(g(n))=O(f(n)×g(n))$</p>
-</blockquote>
-<p>常见的渐近时间复杂度有：</p>
-<blockquote>
-<p>$ O(1)&lt;O(\log_2n)&lt;O(n)&lt;O(n\log_2n)&lt;O(n^2)&lt;O(n^3)&lt;O(2^n)&lt;O(n!)&lt;O(n^n)$</p>
-</blockquote>
-<h3 id="3-4-1_u7A7A_u95F4_u590D_u6742_u5EA6"><a href="#3-4-1_u7A7A_u95F4_u590D_u6742_u5EA6" class="headerlink" title="3.4.1空间复杂度"></a>3.4.1空间复杂度</h3><p>算法的空间复杂度是指算法需要消耗的空间资源。其计算和表示方法与时间复杂度类似，一般都用复杂度的渐近性来表示。同时间复杂度相比，空间复杂度的分析要简单得多。一般记作$S(n)=O(g(n))$。<br>算法原地工作是指算法所需辅助空间是常量，即$O(1)$。</p>
-<h2 id="3-5_u7B97_u6CD5_u7684_u5C0F_u7ED3"><a href="#3-5_u7B97_u6CD5_u7684_u5C0F_u7ED3" class="headerlink" title="3.5算法的小结"></a>3.5算法的小结</h2><p>具体小结如下图所示：</p>
-<p><img src="http://img.blog.csdn.net/20160105123947606" alt="算法小结"></p>
+<h1 id="u4E09-_u7EBF_u6027_u8868_u7684_u5206_u7C7B"><a href="#u4E09-_u7EBF_u6027_u8868_u7684_u5206_u7C7B" class="headerlink" title="三.线性表的分类"></a>三.线性表的分类</h1><p>分类详情如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160105123651500" alt="线性表的分类"></p>
+<h1 id="u56DB-_u7EBF_u6027_u8868_u7684_u57FA_u672C_u64CD_u4F5C"><a href="#u56DB-_u7EBF_u6027_u8868_u7684_u57FA_u672C_u64CD_u4F5C" class="headerlink" title="四.线性表的基本操作"></a>四.线性表的基本操作</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">InitList(L)			<span class="comment">//初始化表。构造一个空的线性表；</span></span><br><span class="line">Legnth(L)			<span class="comment">//求表长度。返回线性表L的长度，即L中数据元素的个数；</span></span><br><span class="line">LocateElem(L,e)		<span class="comment">//按值查找操作。在表L中查找具有给定关键字值的元素；</span></span><br><span class="line">GetElem(L,i)		<span class="comment">//按位查找操作。获取表L中第i个位置的元素的值；</span></span><br><span class="line">ListInsert(L,i,e)	<span class="comment">//插入操作。在表L中第i个位置上插入制定元素；</span></span><br><span class="line">ListDelete(L,i,e)	<span class="comment">//删除操作。删除表L中第i个位置上的元素；</span></span><br><span class="line">PrintList(L)		<span class="comment">//输出操作。按前后顺序输出线性表L的所有元素的值；</span></span><br><span class="line">Empty(L)			<span class="comment">//判空操作</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -331,6 +293,8 @@
           
             <a href="/tags/算法/" rel="tag">#算法</a>
           
+            <a href="/tags/线性表/" rel="tag">#线性表</a>
+          
         </div>
       
 
@@ -338,12 +302,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/01/21/Data structure and Algorithm/绪论/" rel="next" title="绪论">
+                <i class="fa fa-chevron-left"></i> 绪论
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/21/第1章线性表/" rel="prev" title="第1章线性表">
-                第1章线性表 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/01/21/Data structure and Algorithm/第1章第1节-线性表的顺序表示/" rel="prev" title="第1章第1节 线性表的顺序表示">
+                第1章第1节 线性表的顺序表示 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -476,7 +444,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E00-_u6570_u636E_u7ED3_u6784_u7684_u4E09_u8981_u7D20"><span class="nav-number">1.</span> <span class="nav-text">一.数据结构的三要素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1_u6570_u636E_u7684_u903B_u8F91_u7ED3_u6784"><span class="nav-number">1.1.</span> <span class="nav-text">1.1数据的逻辑结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2__u6570_u636E_u7684_u5B58_u50A8_uFF08_u7269_u7406_uFF09_u7ED3_u6784"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 数据的存储（物理）结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3_u6570_u636E_u7684_u8FD0_u7B97"><span class="nav-number">1.3.</span> <span class="nav-text">1.3数据的运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E8C-_u6570_u636E_u7ED3_u6784_u4E09_u8981_u7D20_u5C0F_u7ED3"><span class="nav-number">2.</span> <span class="nav-text">二.数据结构三要素小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E09-_u7B97_u6CD5"><span class="nav-number">3.</span> <span class="nav-text">三.算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1_u7B97_u6CD5_u7684_u57FA_u672C_u6982_u5FF5"><span class="nav-number">3.1.</span> <span class="nav-text">3.1算法的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2_u7B97_u6CD5_u7684_u7279_u6027"><span class="nav-number">3.2.</span> <span class="nav-text">3.2算法的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3_u7B97_u6CD5_u7684_u76EE_u6807"><span class="nav-number">3.3.</span> <span class="nav-text">3.3算法的目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4_u7B97_u6CD5_u6548_u7387_u7684_u5EA6_u91CF"><span class="nav-number">3.4.</span> <span class="nav-text">3.4算法效率的度量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-1_u65F6_u95F4_u590D_u6742_u5EA6"><span class="nav-number">3.4.1.</span> <span class="nav-text">3.4.1时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-1_u7A7A_u95F4_u590D_u6742_u5EA6"><span class="nav-number">3.4.2.</span> <span class="nav-text">3.4.1空间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5_u7B97_u6CD5_u7684_u5C0F_u7ED3"><span class="nav-number">3.5.</span> <span class="nav-text">3.5算法的小结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E00-_u7EBF_u6027_u8868_u7684_u5B9A_u4E49"><span class="nav-number">1.</span> <span class="nav-text">一.线性表的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E8C-_u7EBF_u6027_u8868_u7684_u7279_u70B9"><span class="nav-number">2.</span> <span class="nav-text">二.线性表的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u4E09-_u7EBF_u6027_u8868_u7684_u5206_u7C7B"><span class="nav-number">3.</span> <span class="nav-text">三.线性表的分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u56DB-_u7EBF_u6027_u8868_u7684_u57FA_u672C_u64CD_u4F5C"><span class="nav-number">4.</span> <span class="nav-text">四.线性表的基本操作</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
