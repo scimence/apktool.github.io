@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>第1章第1节练习题1 删除最小值 | 白日梦想家</title>
+  <title>第1章第1节练习题5 删除重复值 | 白日梦想家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：从顺序表中删除具有最小值的元素（假设唯一），并由函数返回被删元素的值。空出的位置由最有一个元素填补，若顺序表为空则显示出错信息，并退出运行…">
+  <meta name="description" content="摘要：从有序表中删除所有其值重复的元素，使表中所有的元素的值均不同…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第1章第1节练习题1 删除最小值">
-<meta property="og:url" content="http://yoursite.com/2016/01/22/Data structure and Algorithm/第1章第1节练习题1-删除最小值/index.html">
+<meta property="og:title" content="第1章第1节练习题5 删除重复值">
+<meta property="og:url" content="http://yoursite.com/2016/01/23/Data structure and Algorithm/第1章第1节练习题5-删除重复值/index.html">
 <meta property="og:site_name" content="白日梦想家">
-<meta property="og:description" content="摘要：从顺序表中删除具有最小值的元素（假设唯一），并由函数返回被删元素的值。空出的位置由最有一个元素填补，若顺序表为空则显示出错信息，并退出运行…">
-<meta property="og:updated_time" content="2016-01-22T07:45:32.724Z">
+<meta property="og:description" content="摘要：从有序表中删除所有其值重复的元素，使表中所有的元素的值均不同…">
+<meta property="og:updated_time" content="2016-01-23T15:34:16.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第1章第1节练习题1 删除最小值">
-<meta name="twitter:description" content="摘要：从顺序表中删除具有最小值的元素（假设唯一），并由函数返回被删元素的值。空出的位置由最有一个元素填补，若顺序表为空则显示出错信息，并退出运行…">
+<meta name="twitter:title" content="第1章第1节练习题5 删除重复值">
+<meta name="twitter:description" content="摘要：从有序表中删除所有其值重复的元素，使表中所有的元素的值均不同…">
   
     <link rel="alternative" href="/atom.xml" title="白日梦想家" type="application/atom+xml">
   
@@ -119,11 +119,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Data structure and Algorithm/第1章第1节练习题1-删除最小值" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Data structure and Algorithm/第1章第1节练习题5-删除重复值" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/22/Data structure and Algorithm/第1章第1节练习题1-删除最小值/" class="article-date">
-  	<time datetime="2016-01-22T07:03:08.000Z" itemprop="datePublished">2016-01-22</time>
+      <a href="/2016/01/23/Data structure and Algorithm/第1章第1节练习题5-删除重复值/" class="article-date">
+  	<time datetime="2016-01-23T15:20:00.000Z" itemprop="datePublished">2016-01-23</time>
 </a>
     </div>
   
@@ -136,7 +136,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      第1章第1节练习题1 删除最小值
+      第1章第1节练习题5 删除重复值
     </h1>
   
 
@@ -160,16 +160,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：从顺序表中删除具有最小值的元素（假设唯一），并由函数返回被删元素的值。空出的位置由最有一个元素填补，若顺序表为空则显示出错信息，并退出运行…</p>
+        <p>摘要：从有序表中删除所有其值重复的元素，使表中所有的元素的值均不同…</p>
 <a id="more"></a>
+<hr>
 <h1 id="u95EE_u9898_u63CF_u8FF0"><a href="#u95EE_u9898_u63CF_u8FF0" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
-<p>从顺序表中删除具有最小值的元素（假设唯一），并由函数返回被删元素的值。空出的位置由最有一个元素填补，若顺序表为空则显示出错信息，并退出运行。</p>
+<p>从有序表中删除所有其值重复的元素，使表中所有的元素的值均不同。</p>
 </blockquote>
 <h1 id="u7B97_u6CD5_u601D_u60F3"><a href="#u7B97_u6CD5_u601D_u60F3" class="headerlink" title="算法思想"></a>算法思想</h1><blockquote>
-<p>搜索整个顺序表，查找最小值元素并记下其所在位置，搜索结束后用最后一个元素填补空出的最小值元素位置。</p>
+<p>注意此题中所提到的线性表是有序顺序表，那么值相同的元素一定在连续的位置上，既然这样，那么我们可以使用类似与<a href="http://apktool.github.io/2016/01/22/Data%20structure%20and%20Algorithm/%E7%AC%AC1%E7%AB%A0%E7%AC%AC1%E8%8A%82%E7%BB%83%E4%B9%A0%E9%A2%984-%E6%97%A0%E5%BA%8F%E8%A1%A8%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4%E5%80%BC/" target="_blank" rel="external">练习题4</a>的方法。对顺序表进行一次遍历，使用k记录元素值不相同的元素的下标。这样以来当有若干个值相同的元素时，我们只保留第一个相同值元素，若不相同时，略过便可，最后对顺序表的表长重置即可解决此问题。<br>因为这里只考虑算法的思想，对具体细节并不做讨论，因此假定所有的元素都是正整数。</p>
 </blockquote>
-<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ElemType <span class="title">DelMin</span><span class="params">(SqList *L)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>,k;</span><br><span class="line">	ElemType temp=L-&gt;data[i];</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;L-&gt;length;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(temp&gt;L-&gt;data[i])&#123;</span><br><span class="line">			temp=L-&gt;data[i];</span><br><span class="line">			k=i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(k==i-<span class="number">1</span>)&#123;</span><br><span class="line">		L-&gt;data[k]=L-&gt;data[i-<span class="number">2</span>];</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		L-&gt;data[k]=L-&gt;data[i-<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	ElemType e=temp;</span><br><span class="line">	<span class="keyword">return</span> e;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.1.1.c" target="_blank" rel="external">1.1.1.c</a></p>
+<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Delrept</span><span class="params">(SqList *L)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k=<span class="number">0</span>;</span><br><span class="line">	ElemType temp=-<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;L-&gt;length;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(L-&gt;data[i]!=temp)&#123;</span><br><span class="line">			temp=L-&gt;data[i];</span><br><span class="line">			L-&gt;data[k++]=L-&gt;data[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	L-&gt;length=k;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.1.5.c" target="_blank" rel="external">1.1.5.c</a></p>
 
       
     </div>
@@ -179,18 +180,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/22/Data structure and Algorithm/第1章第1节练习题2-删除指定元素/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/23/Data structure and Algorithm/第1章第1节练习题6-逆置顺序表/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          第1章第1节练习题2 删除指定元素
+          第1章第1节练习题6 逆置顺序表
         
       </div>
     </a>
   
   
-    <a href="/2016/01/21/Data structure and Algorithm/第1章第1节-线性表的顺序表示/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第1章第1节 线性表的顺序表示</div>
+    <a href="/2016/01/22/Data structure and Algorithm/第1章第1节练习题4-无序表删除指定区间值/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第1章第1节练习题4 无序表删除指定区间值 </div>
       <strong class="article-nav-caption">></strong>
     </a>
   
