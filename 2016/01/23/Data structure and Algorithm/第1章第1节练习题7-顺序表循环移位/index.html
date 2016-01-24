@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="白日梦想家">
 <meta property="og:description" content="摘要：已知在一维数组$A[m+n]$中依次存放着两个线性表$(a_1,a_2,a_3,…,a_m)$和$(b_1,b_2,b_3,…,b_n)$,试编写一个函数，将数组中两个顺序表互换，即将$(b_1,b_2,b_3,…,b_n)$放在$(a_1,a_2,a_3,…,a_m)$的前面…
 已知在一维数组$A[m+n]$中依次存放着两个线性表$(a_1,a_2,a_3,…,a_m)$和$(b_1,b_">
-<meta property="og:updated_time" content="2016-01-23T15:45:20.822Z">
+<meta property="og:updated_time" content="2016-01-23T16:05:48.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第1章第1节练习题7 顺序表循环移位">
 <meta name="twitter:description" content="摘要：已知在一维数组$A[m+n]$中依次存放着两个线性表$(a_1,a_2,a_3,…,a_m)$和$(b_1,b_2,b_3,…,b_n)$,试编写一个函数，将数组中两个顺序表互换，即将$(b_1,b_2,b_3,…,b_n)$放在$(a_1,a_2,a_3,…,a_m)$的前面…
@@ -163,7 +163,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：已知在一维数组$A[m+n]$中依次存放着两个线性表$(a_1,a_2,a_3,…,a_m)$和$(b_1,b_2,b_3,…,b_n)$,试编写一个函数，将数组中两个顺序表互换，即将$(b_1,b_2,b_3,…,b_n)$放在$(a_1,a_2,a_3,…,a_m)$的前面…</p>
+        <p>摘要：<br>已知在一维数组$A[m+n]$中依次存放着两个线性表$(a_1,a_2,a_3,…,a_m)$和$(b_1,b_2,b_3,…,b_n)$,试编写一个函数，将数组中两个顺序表互换，即将$(b_1,b_2,b_3,…,b_n)$放在$(a_1,a_2,a_3,…,a_m)$的前面…</p>
 <p>已知在一维数组$A[m+n]$中依次存放着两个线性表$(a_1,a_2,a_3,…,a_m)$和$(b_1,b_2,b_3,…,b_n)$,试编写一个函数将A中保存的序列循环左移m位…</p>
 <a id="more"></a>
 <hr>
@@ -172,7 +172,7 @@
 <p><strong>描述2：</strong> 已知在一维数组$A[m+n]$中依次存放着两个线性表$(a_1,a_2,a_3,…,a_m)$和$(b_1,b_2,b_3,…,b_n)$,试编写一个函数将A中保存的序列循环左移m位</p>
 </blockquote>
 <h1 id="u7B97_u6CD5_u601D_u60F3"><a href="#u7B97_u6CD5_u601D_u60F3" class="headerlink" title="算法思想"></a>算法思想</h1><p>上面的两种问法最后的结果都是一样的，即将数组$(a_1,a_2,a_3,…,a_m,b_1,b_2,b_3,…,b_n)$变为$(b_1,b_2,b_3,…,b_n,a_1,a_2,a_3,…,a_m)$<br>为了达到上述目的，我们可以将数组$A[m+n]$中的全部元素$(a_1,a_2,a_3,…,a_m,b_1,b_2,b_3,…,b_n) $原地逆置为$(b<em>n,b</em>{n-1},b_{n-2},…,b_1,a<em>m,a</em>{m-1},a_{m-2},…,a_1)$，再对前n个元素和后m个元素分别使用逆置算法，就可以得到 $(b_1,b_2,b_3,…,b_n,a_1,a_2,a_3,…,a_m)$，从而实现顺序表的位置互换</p>
-<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Reverse</span><span class="params">(SqList *L, <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> length)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	ElemType temp;</span><br><span class="line">	<span class="keyword">int</span> mid;</span><br><span class="line">	mid=(left+right)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=mid-left;i++)&#123;</span><br><span class="line">		temp=L-&gt;data[left+i];</span><br><span class="line">		L-&gt;data[left+i]=L-&gt;data[right-i];</span><br><span class="line">		L-&gt;data[right-i]=temp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Reverse</span><span class="params">(SqList *L, <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> length)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	ElemType temp;</span><br><span class="line">	<span class="keyword">int</span> mid;</span><br><span class="line">	mid=(left+right)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=mid-left;i++)&#123;</span><br><span class="line">		temp=L-&gt;data[left+i];</span><br><span class="line">		L-&gt;data[left+i]=L-&gt;data[right-i];</span><br><span class="line">		L-&gt;data[right-i]=temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.1.7.c" target="_blank" rel="external">1.1.7.c</a></p>
 
       
@@ -182,6 +182,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/01/24/Data structure and Algorithm/第1章第1节练习题8-查找指定值/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          第1章第1节练习题8 查找指定值
+        
+      </div>
+    </a>
   
   
     <a href="/2016/01/23/Data structure and Algorithm/第1章第1节练习题6-逆置顺序表/" id="article-nav-older" class="article-nav-link-wrap">

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>第1章第1节练习题9 查找中位数 | 白日梦想家</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要：现在有两个等长升序序列A和B，试设计一个在时间和空间都尽可能高效的算法，找出两个序列A和B的中位数…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第1章第1节练习题9 查找中位数">
+<meta property="og:url" content="http://yoursite.com/2016/01/24/Data structure and Algorithm/第1章第1节练习题9-查找中位数/index.html">
+<meta property="og:site_name" content="白日梦想家">
+<meta property="og:description" content="摘要：现在有两个等长升序序列A和B，试设计一个在时间和空间都尽可能高效的算法，找出两个序列A和B的中位数…">
+<meta property="og:updated_time" content="2016-01-24T13:08:55.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第1章第1节练习题9 查找中位数">
+<meta name="twitter:description" content="摘要：现在有两个等长升序序列A和B，试设计一个在时间和空间都尽可能高效的算法，找出两个序列A和B的中位数…">
+  
+    <link rel="alternative" href="/atom.xml" title="白日梦想家" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://apktool.github.io/uploads/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">呃，无名</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/apktool" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">呃，无名</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://apktool.github.io/uploads/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">呃，无名</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/apktool" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Data structure and Algorithm/第1章第1节练习题9-查找中位数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/Data structure and Algorithm/第1章第1节练习题9-查找中位数/" class="article-date">
+  	<time datetime="2016-01-24T13:00:00.000Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第1章第1节练习题9 查找中位数
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性表/">线性表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/顺序表/">顺序表</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据结构和算法/">数据结构和算法</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：现在有两个等长升序序列A和B，试设计一个在时间和空间都尽可能高效的算法，找出两个序列A和B的中位数…</p>
+<a id="more"></a>
+<h1 id="u95EE_u9898_u63CF_u8FF0"><a href="#u95EE_u9898_u63CF_u8FF0" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
+<p>一个长度为L(L &ge;1) 的升序序列S，处在第 &ulcorner; L/2 &urcorner; 个位置的数称为S的中位数。例如，若序列$S1=(11,13,15,17,19)$，则S1的中位数是15；<br>两个序列的中位数是含它们所有元素所组成的升序序列的中位数。例如，若$S2=(2,4,6,8,20)$，则S1和S2的中位数是11。<br>现在有两个等长升序序列A和B，试设计一个在时间和空间都尽可能高效的算法，找出两个序列A和B的中位数。</p>
+</blockquote>
+<h1 id="u7B97_u6CD5_u601D_u60F3"><a href="#u7B97_u6CD5_u601D_u60F3" class="headerlink" title="算法思想"></a>算法思想</h1><blockquote>
+<p>分别求两个升序序列A，B中位数，设为a和b<br>1). 若a=b，则a或b即为所求中位数，算法结束；<br>2). 若a&lt;b，则舍弃序列A中较小的一半，同时舍弃序列B中较大的一半，要求两次舍弃的长度相等；<br>3). 若a&gt;b，则设计序列A中较大的一半，同时设计序列B中较小的一半，要求两次舍弃的长度相等；</p>
+</blockquote>
+<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">FindMid</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> B[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> s1=<span class="number">0</span>,d1=MaxSize-<span class="number">1</span>,m1;</span><br><span class="line">	<span class="keyword">int</span> s2=<span class="number">0</span>,d2=MaxSize-<span class="number">1</span>,m2;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(s1!=d1||s2!=d2)&#123;</span><br><span class="line">		m1=(s1+d1)/<span class="number">2</span>;</span><br><span class="line">		m2=(s2+d2)/<span class="number">2</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(A[m1]&lt;B[m2])&#123;</span><br><span class="line">			<span class="keyword">if</span>((s1+d1)%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">				s1=m1;</span><br><span class="line">				d2=m2;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				s1=m1+<span class="number">1</span>;</span><br><span class="line">				d2=m2;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(A[m1]&gt;B[<span class="number">2</span>])&#123;</span><br><span class="line">			<span class="keyword">if</span>((s2+d2)%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">				d1=m1;</span><br><span class="line">				s2=m2;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				d1=m1;</span><br><span class="line">				s2=m2+<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> A[m1];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> A[s1]&lt;B[s2]?A[s1]:B[s2];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.1.9.c" target="_blank" rel="external">1.1.9.c</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/24/Data structure and Algorithm/第1章第2节练习题10-顺序表的归并/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          第1章第1节练习题10 顺序表的归并
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/24/Data structure and Algorithm/第1章第1节练习题8-查找指定值/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第1章第1节练习题8 查找指定值</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 呃，无名
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
