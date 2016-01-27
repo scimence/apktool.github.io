@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>第1章第2节练习题3 删除最小值结点 | 白日梦想家</title>
+  <title>第1章第2节练习题2 非递归删除指定结点 | 白日梦想家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：试编写在带头结点的单链表L中删除一个最小值结点的高效算法（假设最小值结点是唯一的）…">
+  <meta name="description" content="摘要：在带头结点的单链表L中，删除所有值为x的结点，并释放其空间，假设值为x的结点不唯一，试编写算法实现以上的操作…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第1章第2节练习题3 删除最小值结点">
-<meta property="og:url" content="http://yoursite.com/2016/01/26/第1章第2节练习题3-删除最小值结点/index.html">
+<meta property="og:title" content="第1章第2节练习题2 非递归删除指定结点">
+<meta property="og:url" content="http://yoursite.com/2016/01/26/Data structure and Algorithm/第1章第2节练习题2-非递归删除指定结点/index.html">
 <meta property="og:site_name" content="白日梦想家">
-<meta property="og:description" content="摘要：试编写在带头结点的单链表L中删除一个最小值结点的高效算法（假设最小值结点是唯一的）…">
-<meta property="og:updated_time" content="2016-01-26T06:25:43.596Z">
+<meta property="og:description" content="摘要：在带头结点的单链表L中，删除所有值为x的结点，并释放其空间，假设值为x的结点不唯一，试编写算法实现以上的操作…">
+<meta property="og:updated_time" content="2016-01-26T06:32:40.540Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第1章第2节练习题3 删除最小值结点">
-<meta name="twitter:description" content="摘要：试编写在带头结点的单链表L中删除一个最小值结点的高效算法（假设最小值结点是唯一的）…">
+<meta name="twitter:title" content="第1章第2节练习题2 非递归删除指定结点">
+<meta name="twitter:description" content="摘要：在带头结点的单链表L中，删除所有值为x的结点，并释放其空间，假设值为x的结点不唯一，试编写算法实现以上的操作…">
   
     <link rel="alternative" href="/atom.xml" title="白日梦想家" type="application/atom+xml">
   
@@ -119,11 +119,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-第1章第2节练习题3-删除最小值结点" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Data structure and Algorithm/第1章第2节练习题2-非递归删除指定结点" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/26/第1章第2节练习题3-删除最小值结点/" class="article-date">
-  	<time datetime="2016-01-26T06:30:00.000Z" itemprop="datePublished">2016-01-26</time>
+      <a href="/2016/01/26/Data structure and Algorithm/第1章第2节练习题2-非递归删除指定结点/" class="article-date">
+  	<time datetime="2016-01-26T06:20:00.000Z" itemprop="datePublished">2016-01-26</time>
 </a>
     </div>
   
@@ -136,7 +136,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      第1章第2节练习题3 删除最小值结点
+      第1章第2节练习题2 非递归删除指定结点
     </h1>
   
 
@@ -160,16 +160,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：试编写在带头结点的单链表L中删除一个最小值结点的高效算法（假设最小值结点是唯一的）…</p>
+        <p>摘要：在带头结点的单链表L中，删除所有值为x的结点，并释放其空间，假设值为x的结点不唯一，试编写算法实现以上的操作…</p>
 <a id="more"></a>
 <h1 id="u95EE_u9898_u63CF_u8FF0"><a href="#u95EE_u9898_u63CF_u8FF0" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
-<p>试编写在带头结点的单链表L中删除一个最小值结点的高效算法（假设最小值结点是唯一的）。</p>
+<p>在带头结点的单链表L中，删除所有值为x的结点，并释放其空间，假设值为x的结点不唯一，试编写算法实现以上的操作。</p>
 </blockquote>
 <h1 id="u7B97_u6CD5_u601D_u60F3"><a href="#u7B97_u6CD5_u601D_u60F3" class="headerlink" title="算法思想"></a>算法思想</h1><blockquote>
-<p>在链表中删除最小值的前提是必须找到最小值元素是哪个结点，因此设置指针p对所有结点进行遍历，使用指针min指向最小值结点。但是因为涉及到删除操作，明显在只有指针min和指针p的条件下删除操作是极为不方便的。若单纯的删除指针p指向的结点会造成断链，若采用<a href="http://apktool.github.io/2016/01/25/Data%20structure%20and%20Algorithm/第1章第2节-线性表的链式表示（1）/" target="_blank" rel="external">第1章第2节 线性表的链式表示（1）</a><code>2.5.2删除自身结点</code>的方法，又会出现多次赋值操作。因此直接引入两个分别指向其前驱结点的指针pre和premin，如此，删除操作过程会更加通俗易懂。</p>
+<p>使用指针p指向数据域为x的结点，使用指针pre指向指针p所指结点的前驱结点，从前向后进行遍历。如果指针p指向的结点的数据域为x，则删除，如果指针p指向的结点的数据域不为x，继续向后遍历即可。</p>
 </blockquote>
-<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DelMin</span><span class="params">(LNode *head)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	LNode *pre=head,*p=head-&gt;next;</span><br><span class="line">	LNode *premin=pre,*min=p;</span><br><span class="line">	<span class="keyword">while</span>(p)&#123;</span><br><span class="line">		<span class="keyword">if</span>(min-&gt;data&gt;p-&gt;data)&#123;</span><br><span class="line">			premin=pre;</span><br><span class="line">			min=p;</span><br><span class="line">		&#125;</span><br><span class="line">		pre=p;</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Deleted Node: %4d\n"</span>,min-&gt;data);</span><br><span class="line">	premin-&gt;next=min-&gt;next;</span><br><span class="line">	<span class="built_in">free</span>(min);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.2.3.c" target="_blank" rel="external">1.2.3.c</a></p>
+<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DelNodeX</span><span class="params">(LNode *head, ElemType x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	LNode *pre=head;</span><br><span class="line">	LNode *p=head-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(p-&gt;data==x)&#123;</span><br><span class="line">			pre-&gt;next=p-&gt;next;</span><br><span class="line">			<span class="built_in">free</span>(p);</span><br><span class="line">			p=pre-&gt;next;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			pre=p;</span><br><span class="line">			p=p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.2.2.c" target="_blank" rel="external">1.2.2.c</a></p>
 
       
     </div>
@@ -179,9 +179,18 @@
     
 <nav id="article-nav">
   
+    <a href="/2016/01/26/Data structure and Algorithm/第1章第2节练习题3-删除最小值结点/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          第1章第2节练习题3 删除最小值结点
+        
+      </div>
+    </a>
   
-    <a href="/2016/01/26/第1章第2节练习题2-非递归删除指定结点/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第1章第2节练习题2 非递归删除指定结点</div>
+  
+    <a href="/2016/01/26/Data structure and Algorithm/第1章第2节练习题1-递归删除指定结点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第1章第2节练习题1 递归删除指定结点</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
