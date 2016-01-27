@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/27/Data structure and Algorithm/第1章第2节练习题6-反向输出/index.html">
 <meta property="og:site_name" content="白日梦想家">
 <meta property="og:description" content="摘要：设L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值…">
-<meta property="og:updated_time" content="2016-01-27T15:33:15.939Z">
+<meta property="og:updated_time" content="2016-01-27T15:36:58.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第1章第2节练习题6 反向输出">
 <meta name="twitter:description" content="摘要：设L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值…">
@@ -169,7 +169,7 @@
 <p>如果此题是不带头结点的单链表时，使用递归是最简单的方式。但是因为拥有头结点，因此如果继续使用递归会将头节点输出，而头结点本身并不存储任何数据，因此递归必然出错。<br>本题中，首先将头（head）结点单独摘下，形成头结点和后继链表两个部分；采用<a href="http://apktool.github.io/2016/01/25/Data%20structure%20and%20Algorithm/第1章第2节-性表的链式表示（1）/" target="_blank" rel="external">1.2.1头插法建立单链表</a>中<code>头插法</code>的思想，因为采用头插法建立的单链表与输入数据时的顺序恰好是相反的，这样以来，我们便可以从后继链表中取出一个链头结点采用头插法插入到head结点之后；以此类推，便可以完成整张链表的反转操作，最后输出便可。</p>
 </blockquote>
 <h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LinkList <span class="title">Reverse</span><span class="params">(LNode *head)</span></span>&#123;</span><br><span class="line">	LNode *p=head-&gt;next;</span><br><span class="line">	LNode *q=p;</span><br><span class="line"></span><br><span class="line">	head-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">while</span>(p)&#123;</span><br><span class="line">		q=q-&gt;next;</span><br><span class="line">		<span class="comment">//单独拆出结点p</span></span><br><span class="line">		p-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">		<span class="comment">//头插法在头结点后插入结点p</span></span><br><span class="line">		p-&gt;next=head-&gt;next;</span><br><span class="line">		head-&gt;next=p;</span><br><span class="line">		<span class="comment">//指针p重新指向原来被拆断的链的链头</span></span><br><span class="line">		p=q;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>具体代码见</p>
+<p>具体代码见具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.2.6.c" target="_blank" rel="external">1.2.6.c</a></p>
 
       
     </div>
