@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>第1章第2节练习题5 删除重复结点 | 白日梦想家</title>
+  <title>第1章第2节练习题6 反向输出 | 白日梦想家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：在一个递增有序的单链表中，有数据相同的结点存在。试设计一个算法，删除数值相同的结点，使表中不再有重复的结点…">
+  <meta name="description" content="摘要：设L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第1章第2节练习题5 删除重复结点">
-<meta property="og:url" content="http://yoursite.com/2016/01/27/Data structure and Algorithm/第1章第2节练习题5-删除重复结点/index.html">
+<meta property="og:title" content="第1章第2节练习题6 反向输出">
+<meta property="og:url" content="http://yoursite.com/2016/01/27/Data structure and Algorithm/第1章第2节练习题6-反向输出/index.html">
 <meta property="og:site_name" content="白日梦想家">
-<meta property="og:description" content="摘要：在一个递增有序的单链表中，有数据相同的结点存在。试设计一个算法，删除数值相同的结点，使表中不再有重复的结点…">
-<meta property="og:updated_time" content="2016-01-27T15:22:21.870Z">
+<meta property="og:description" content="摘要：设L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值…">
+<meta property="og:updated_time" content="2016-01-27T15:40:29.031Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第1章第2节练习题5 删除重复结点">
-<meta name="twitter:description" content="摘要：在一个递增有序的单链表中，有数据相同的结点存在。试设计一个算法，删除数值相同的结点，使表中不再有重复的结点…">
+<meta name="twitter:title" content="第1章第2节练习题6 反向输出">
+<meta name="twitter:description" content="摘要：设L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值…">
   
     <link rel="alternative" href="/atom.xml" title="白日梦想家" type="application/atom+xml">
   
@@ -119,11 +119,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Data structure and Algorithm/第1章第2节练习题5-删除重复结点" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Data structure and Algorithm/第1章第2节练习题6-反向输出" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/27/Data structure and Algorithm/第1章第2节练习题5-删除重复结点/" class="article-date">
-  	<time datetime="2016-01-27T15:20:00.000Z" itemprop="datePublished">2016-01-27</time>
+      <a href="/2016/01/27/Data structure and Algorithm/第1章第2节练习题6-反向输出/" class="article-date">
+  	<time datetime="2016-01-27T15:40:00.000Z" itemprop="datePublished">2016-01-27</time>
 </a>
     </div>
   
@@ -136,7 +136,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      第1章第2节练习题5 删除重复结点
+      第1章第2节练习题6 反向输出
     </h1>
   
 
@@ -160,16 +160,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：在一个递增有序的单链表中，有数据相同的结点存在。试设计一个算法，删除数值相同的结点，使表中不再有重复的结点…</p>
+        <p>摘要：设L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值…</p>
 <a id="more"></a>
 <h1 id="u95EE_u9898_u63CF_u8FF0"><a href="#u95EE_u9898_u63CF_u8FF0" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
-<p>在一个递增有序的单链表中，有数据相同的结点存在。试设计一个算法，删除数值相同的结点，使表中不再有重复的结点。<br>例如（7,10,10,21,30,42,42,42,51,70）将变作（7,10,21,30,42,51,70）</p>
+<p>设L为带头结点的单链表，编写算法实现从尾到头反向输出每个结点的值。</p>
 </blockquote>
 <h1 id="u7B97_u6CD5_u601D_u60F3"><a href="#u7B97_u6CD5_u601D_u60F3" class="headerlink" title="算法思想"></a>算法思想</h1><blockquote>
-<p>考虑到本题中的单链表逻辑上有序，因此若存在数据域相同的结点那么它们必定是连续的。本算法中使用指针p完成对单链表的一次遍历，指针pre指向指针p所指结点的前驱结点。如果<code>pre-&gt;data</code>与<code>p-&gt;data</code>相等，那么删除指针p所指向的结点，p后移一位；如果继续相等则步骤同上。</p>
+<p>如果此题是不带头结点的单链表时，使用递归是最简单的方式。但是因为拥有头结点，因此如果继续使用递归会将头节点输出，而头结点本身并不存储任何数据，因此递归必然出错。<br>本题中，首先将头（head）结点单独摘下，形成头结点和后继链表两个部分；采用<a href="http://apktool.github.io/2016/01/25/Data%20structure%20and%20Algorithm/第1章第2节-性表的链式表示（1）/" target="_blank" rel="external">1.2.1头插法建立单链表</a>中<code>头插法</code>的思想，因为采用头插法建立的单链表与输入数据时的顺序恰好是相反的，这样以来，我们便可以从后继链表中取出一个链头结点采用头插法插入到head结点之后；以此类推，便可以完成整张链表的反转操作，最后输出便可。</p>
 </blockquote>
-<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DelRrepeat</span><span class="params">(LNode *head)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	LNode *pre=head;</span><br><span class="line">	LNode *p=head-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(p)&#123;</span><br><span class="line">		<span class="keyword">while</span>(pre-&gt;data==p-&gt;data)&#123;</span><br><span class="line">			pre-&gt;next=p-&gt;next;</span><br><span class="line">			<span class="built_in">free</span>(p);</span><br><span class="line">			p=pre-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		pre=p;</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.2.5.c" target="_blank" rel="external">1.2.5.c</a></p>
+<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LinkList <span class="title">Reverse</span><span class="params">(LNode *head)</span></span>&#123;</span><br><span class="line">	LNode *p=head-&gt;next;</span><br><span class="line">	LNode *q=p;</span><br><span class="line"></span><br><span class="line">	head-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">while</span>(p)&#123;</span><br><span class="line">		q=q-&gt;next;</span><br><span class="line">		<span class="comment">//单独拆出结点p</span></span><br><span class="line">		p-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">		<span class="comment">//头插法在头结点后插入结点p</span></span><br><span class="line">		p-&gt;next=head-&gt;next;</span><br><span class="line">		head-&gt;next=p;</span><br><span class="line">		<span class="comment">//指针p重新指向原来被拆断的链的链头</span></span><br><span class="line">		p=q;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体代码见具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.2.6.c" target="_blank" rel="external">1.2.6.c</a></p>
 
       
     </div>
@@ -179,18 +179,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/27/Data structure and Algorithm/第1章第2节练习题6-反向输出/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          第1章第2节练习题6 反向输出
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/27/Data structure and Algorithm/第1章第2节练习题4-删除指定区间结点/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第1章第2节练习题4 删除指定区间结点</div>
+    <a href="/2016/01/27/Data structure and Algorithm/第1章第2节练习题5-删除重复结点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第1章第2节练习题5 删除重复结点</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
