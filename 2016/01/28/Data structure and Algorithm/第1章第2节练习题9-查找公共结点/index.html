@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>第1章第2节练习题9 查找公共结点 | 白日梦想家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：将一个带头结点的单链表分解为两个带头结点的单链表A和B，使得A表中含有原表中序号为奇数的元素，而B表中含有元表中序号为偶数的元素，且保持其相对顺序不变…">
+  <meta name="description" content="摘要：给定两个单链表，编写算法找出两个链表的共同结点…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第1章第2节练习题9 查找公共结点">
 <meta property="og:url" content="http://yoursite.com/2016/01/28/Data structure and Algorithm/第1章第2节练习题9-查找公共结点/index.html">
 <meta property="og:site_name" content="白日梦想家">
-<meta property="og:description" content="摘要：将一个带头结点的单链表分解为两个带头结点的单链表A和B，使得A表中含有原表中序号为奇数的元素，而B表中含有元表中序号为偶数的元素，且保持其相对顺序不变…">
-<meta property="og:updated_time" content="2016-01-28T09:03:27.522Z">
+<meta property="og:description" content="摘要：给定两个单链表，编写算法找出两个链表的共同结点…">
+<meta property="og:updated_time" content="2016-01-28T09:05:24.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第1章第2节练习题9 查找公共结点">
-<meta name="twitter:description" content="摘要：将一个带头结点的单链表分解为两个带头结点的单链表A和B，使得A表中含有原表中序号为奇数的元素，而B表中含有元表中序号为偶数的元素，且保持其相对顺序不变…">
+<meta name="twitter:description" content="摘要：给定两个单链表，编写算法找出两个链表的共同结点…">
   
     <link rel="alternative" href="/atom.xml" title="白日梦想家" type="application/atom+xml">
   
@@ -160,10 +160,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：将一个带头结点的单链表分解为两个带头结点的单链表A和B，使得A表中含有原表中序号为奇数的元素，而B表中含有元表中序号为偶数的元素，且保持其相对顺序不变…</p>
+        <p>摘要：给定两个单链表，编写算法找出两个链表的共同结点…</p>
 <a id="more"></a>
 <h1 id="u95EE_u9898_u63CF_u8FF0"><a href="#u95EE_u9898_u63CF_u8FF0" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
-<p>给定两个单链表，编写算法找出两个链表的共同结点</p>
+<p>给定两个单链表，编写算法找出两个链表的共同结点。</p>
 </blockquote>
 <h1 id="u7B97_u6CD5_u601D_u60F3"><a href="#u7B97_u6CD5_u601D_u60F3" class="headerlink" title="算法思想"></a>算法思想</h1><blockquote>
 <p>我们从<a href="http://apktool.github.io/2016/01/25/Data%20structure%20and%20Algorithm/第1章第2节-线性表的链式表示（1）/" target="_blank" rel="external">单链表的定义</a>中可以发现每一个结点只有一个next域，那么从第一个公共结点开始，后面所有的结点都应该是重合的，形状应该类似与倒Y型（<code>&gt;-</code>）。既然如此，那么对两条单链表同时开始遍历，只要它们的指针同时指向同一个结点（即：两指针相等）时不就找到公共结点了吗？<br>但在实现的时候，应该注意到，两张链表在等长的情况下，同时开始遍历，指针必然可以同时指向公共结点；可是如果不等长的话，同时遍历是无法同时指向公共结点的。<br>这里总结下思想核心</p>
