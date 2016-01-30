@@ -4,19 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>第1章第2节练习题12 单链表之插入排序 | 白日梦想家</title>
+  <title>第1章第2节练习题14 判断子序列 | 白日梦想家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：有一个带头结点的单链表对其排序，使之递增有序…">
+  <meta name="description" content="摘要：两个整数序列$A=a_1, a_2, a_3, … ,a_m$和$B=b_1, b_2, b_3, …, b_n$已经存入两个单链表中，设计一个算法，判断序列B是否是序列A的连续子序列…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第1章第2节练习题12 单链表之插入排序">
-<meta property="og:url" content="http://yoursite.com/2016/01/29/Data structure and Algorithm/第1章第2节练习题12-单链表之插入排序/index.html">
+<meta property="og:title" content="第1章第2节练习题14 判断子序列">
+<meta property="og:url" content="http://yoursite.com/2016/01/30/第1章第2节练习题14-判断子序列/index.html">
 <meta property="og:site_name" content="白日梦想家">
-<meta property="og:description" content="摘要：有一个带头结点的单链表对其排序，使之递增有序…">
-<meta property="og:image" content="http://img.blog.csdn.net/20160112160435162">
-<meta property="og:updated_time" content="2016-01-30T05:45:47.560Z">
+<meta property="og:description" content="摘要：两个整数序列$A=a_1, a_2, a_3, … ,a_m$和$B=b_1, b_2, b_3, …, b_n$已经存入两个单链表中，设计一个算法，判断序列B是否是序列A的连续子序列…">
+<meta property="og:updated_time" content="2016-01-30T07:54:52.519Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第1章第2节练习题12 单链表之插入排序">
-<meta name="twitter:description" content="摘要：有一个带头结点的单链表对其排序，使之递增有序…">
+<meta name="twitter:title" content="第1章第2节练习题14 判断子序列">
+<meta name="twitter:description" content="摘要：两个整数序列$A=a_1, a_2, a_3, … ,a_m$和$B=b_1, b_2, b_3, …, b_n$已经存入两个单链表中，设计一个算法，判断序列B是否是序列A的连续子序列…">
   
     <link rel="alternative" href="/atom.xml" title="白日梦想家" type="application/atom+xml">
   
@@ -120,11 +119,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Data structure and Algorithm/第1章第2节练习题12-单链表之插入排序" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-第1章第2节练习题14-判断子序列" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/29/Data structure and Algorithm/第1章第2节练习题12-单链表之插入排序/" class="article-date">
-  	<time datetime="2016-01-29T06:00:00.000Z" itemprop="datePublished">2016-01-29</time>
+      <a href="/2016/01/30/第1章第2节练习题14-判断子序列/" class="article-date">
+  	<time datetime="2016-01-30T07:30:00.000Z" itemprop="datePublished">2016-01-30</time>
 </a>
     </div>
   
@@ -137,7 +136,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      第1章第2节练习题12 单链表之插入排序
+      第1章第2节练习题14 判断子序列
     </h1>
   
 
@@ -161,17 +160,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：有一个带头结点的单链表对其排序，使之递增有序…</p>
+        <p>摘要：两个整数序列$A=a_1, a_2, a_3, … ,a_m$和$B=b_1, b_2, b_3, …, b_n$已经存入两个单链表中，设计一个算法，判断序列B是否是序列A的连续子序列…</p>
 <a id="more"></a>
 <h1 id="u95EE_u9898_u63CF_u8FF0"><a href="#u95EE_u9898_u63CF_u8FF0" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
-<p>有一个带头结点的单链表对其排序，使之递增有序。</p>
+<p>两个整数序列$A=a_1, a_2, a_3, … ,a_m$和$B=b_1, b_2, b_3, …, b_n$已经存入两个单链表中，设计一个算法，判断序列B是否是序列A的连续子序列。</p>
 </blockquote>
 <h1 id="u7B97_u6CD5_u601D_u60F3"><a href="#u7B97_u6CD5_u601D_u60F3" class="headerlink" title="算法思想"></a>算法思想</h1><blockquote>
-<p>本题是仅仅要求完成排序，因此我们很容易的想到使用插入排序算法完成单链表的排序。<br>首先将单链表的头结点拆下，用指针p指向剩余的不带头结点的那部分链表的的第一个结点，指针q指向指针p指向的结点的下一个结点。然后将指针p指向的结点摘下，使用指针pre对带有头结点的那部分链表进行遍历，如果指针pre所指结点的下一个结点的数据域值比指针p所指结点的数据域的值大，则将指针p所指结点插入到指针pre所指结点的后面，这样便完成了一次排序过程。重新让指针p指向不带头节点的那部分链表的第一个结点，指针q指向指针p所指结点的下一个结点，重新开始一次排序。<br>如图所示：</p>
+<p>因为此题需要判断序列B是否为序列A的子序列，即单链表B中所有连续结点的数据域的值是否在A中能够找到同样连续的一部分。<br>既然如此，那么我们可以从两个链表的第一个结点开始，若对应的数据相等，则后移指针；<br>最后判断下单链表B是否彻底遍历完成，如果完成，则表示单链表B是单链表A的一个子序列；如果没有遍历完成，则表示单链表B不是单链表A的一个子序列。</p>
 </blockquote>
-<p><img src="http://img.blog.csdn.net/20160112160435162" alt="直接插入排序"></p>
-<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sort</span><span class="params">(LNode *head)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	LNode *pre=head;</span><br><span class="line">	LNode *p=pre-&gt;next;</span><br><span class="line">	LNode *q=p-&gt;next;</span><br><span class="line">	p-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">	p=q;</span><br><span class="line">	<span class="keyword">while</span>(q)&#123;</span><br><span class="line">		q=p-&gt;next;</span><br><span class="line">		pre=head;</span><br><span class="line">		<span class="keyword">while</span>(pre-&gt;next!=<span class="literal">NULL</span>&amp;&amp;pre-&gt;next-&gt;data&lt;p-&gt;data)&#123;</span><br><span class="line">			pre=pre-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		p-&gt;next=pre-&gt;next;</span><br><span class="line">		pre-&gt;next=p;</span><br><span class="line">		p=q;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.2.12.c" target="_blank" rel="external">1.2.12.c</a></p>
+<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">FindSub</span><span class="params">(LNode* head1, LNode* head2)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	LNode *pre=head1;      <span class="comment">//保存指针p所指结点的前驱结点</span></span><br><span class="line">	LNode *p=head1-&gt;next;  <span class="comment">//指向序列A中需要比较的结点</span></span><br><span class="line">	LNode *q=head2-&gt;next;  <span class="comment">//指向序列B中需要比较的结点</span></span><br><span class="line">	<span class="keyword">while</span>(p&amp;&amp;q)&#123;           <span class="comment">//如果p或q为空，表示单链表A或单链表B至少已经有一个遍历完成</span></span><br><span class="line">		<span class="keyword">if</span>(p-&gt;data==q-&gt;data)&#123;</span><br><span class="line">			p=p-&gt;next;</span><br><span class="line">			q=q-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			pre=pre-&gt;next;</span><br><span class="line">			p=pre;</span><br><span class="line">			q=head2-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(q==<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.2.14.c" target="_blank" rel="external">1.2.14.c</a></p>
 
       
     </div>
@@ -181,18 +179,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/30/第1章第2节练习题13-单链表之选择排序/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/30/第1章第2节练习题15-拆分并逆序单链表/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          第1章第2节练习题13 单链表之选择排序
+          第1章第2节练习题15 拆分并逆序单链表
         
       </div>
     </a>
   
   
-    <a href="/2016/01/29/Data structure and Algorithm/第1章第2节练习题11-就地逆置单链表/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第1章第2节练习题11 就地逆置单链表 </div>
+    <a href="/2016/01/30/第1章第2节练习题13-单链表之选择排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第1章第2节练习题13 单链表之选择排序</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
