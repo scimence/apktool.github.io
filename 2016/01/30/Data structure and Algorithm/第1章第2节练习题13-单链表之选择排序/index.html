@@ -4,18 +4,17 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>第1章第2节练习题12 单链表之插入排序 | 白日梦想家</title>
+  <title>第1章第2节练习题13 单链表之选择排序 | 白日梦想家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="摘要：有一个带头结点的单链表对其排序，使之递增有序…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第1章第2节练习题12 单链表之插入排序">
-<meta property="og:url" content="http://yoursite.com/2016/01/29/Data structure and Algorithm/第1章第2节练习题12-单链表之插入排序/index.html">
+<meta property="og:title" content="第1章第2节练习题13 单链表之选择排序">
+<meta property="og:url" content="http://yoursite.com/2016/01/30/Data structure and Algorithm/第1章第2节练习题13-单链表之选择排序/index.html">
 <meta property="og:site_name" content="白日梦想家">
 <meta property="og:description" content="摘要：有一个带头结点的单链表对其排序，使之递增有序…">
-<meta property="og:image" content="http://img.blog.csdn.net/20160112160435162">
-<meta property="og:updated_time" content="2016-01-30T05:45:47.560Z">
+<meta property="og:updated_time" content="2016-01-30T07:52:24.539Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第1章第2节练习题12 单链表之插入排序">
+<meta name="twitter:title" content="第1章第2节练习题13 单链表之选择排序">
 <meta name="twitter:description" content="摘要：有一个带头结点的单链表对其排序，使之递增有序…">
   
     <link rel="alternative" href="/atom.xml" title="白日梦想家" type="application/atom+xml">
@@ -120,11 +119,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Data structure and Algorithm/第1章第2节练习题12-单链表之插入排序" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Data structure and Algorithm/第1章第2节练习题13-单链表之选择排序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/29/Data structure and Algorithm/第1章第2节练习题12-单链表之插入排序/" class="article-date">
-  	<time datetime="2016-01-29T06:00:00.000Z" itemprop="datePublished">2016-01-29</time>
+      <a href="/2016/01/30/Data structure and Algorithm/第1章第2节练习题13-单链表之选择排序/" class="article-date">
+  	<time datetime="2016-01-30T07:00:00.000Z" itemprop="datePublished">2016-01-30</time>
 </a>
     </div>
   
@@ -137,7 +136,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      第1章第2节练习题12 单链表之插入排序
+      第1章第2节练习题13 单链表之选择排序
     </h1>
   
 
@@ -167,11 +166,10 @@
 <p>有一个带头结点的单链表对其排序，使之递增有序。</p>
 </blockquote>
 <h1 id="u7B97_u6CD5_u601D_u60F3"><a href="#u7B97_u6CD5_u601D_u60F3" class="headerlink" title="算法思想"></a>算法思想</h1><blockquote>
-<p>本题是仅仅要求完成排序，因此我们很容易的想到使用插入排序算法完成单链表的排序。<br>首先将单链表的头结点拆下，用指针p指向剩余的不带头结点的那部分链表的的第一个结点，指针q指向指针p指向的结点的下一个结点。然后将指针p指向的结点摘下，使用指针pre对带有头结点的那部分链表进行遍历，如果指针pre所指结点的下一个结点的数据域值比指针p所指结点的数据域的值大，则将指针p所指结点插入到指针pre所指结点的后面，这样便完成了一次排序过程。重新让指针p指向不带头节点的那部分链表的第一个结点，指针q指向指针p所指结点的下一个结点，重新开始一次排序。<br>如图所示：</p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20160112160435162" alt="直接插入排序"></p>
-<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sort</span><span class="params">(LNode *head)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	LNode *pre=head;</span><br><span class="line">	LNode *p=pre-&gt;next;</span><br><span class="line">	LNode *q=p-&gt;next;</span><br><span class="line">	p-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">	p=q;</span><br><span class="line">	<span class="keyword">while</span>(q)&#123;</span><br><span class="line">		q=p-&gt;next;</span><br><span class="line">		pre=head;</span><br><span class="line">		<span class="keyword">while</span>(pre-&gt;next!=<span class="literal">NULL</span>&amp;&amp;pre-&gt;next-&gt;data&lt;p-&gt;data)&#123;</span><br><span class="line">			pre=pre-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		p-&gt;next=pre-&gt;next;</span><br><span class="line">		pre-&gt;next=p;</span><br><span class="line">		p=q;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.2.12.c" target="_blank" rel="external">1.2.12.c</a></p>
+<p>因为是单链表的一次排序，<a href="http://apktool.github.io/2016/01/29/Data%20structure%20and%20Algorithm/第1章第2节练习题12-单链表之插入排序/" target="_blank" rel="external">练习题12</a>中采用的是插入排序的算法，同样类似，我们可以想到使用选择排序算法完成排序。选择排序一共分成两个部分，即查找最小值和将最小值结点插入合适的位置两个部分。具体算法如下：</p>
+<h1 id="u7B97_u6CD5_u63CF_u8FF0"><a href="#u7B97_u6CD5_u63CF_u8FF0" class="headerlink" title="算法描述"></a>算法描述</h1></blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查找最小值</span></span><br><span class="line"><span class="function">LNode* <span class="title">FindMin</span><span class="params">(LNode* head)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	LNode *pre=head;</span><br><span class="line">	LNode *premin=head;</span><br><span class="line">	LNode *p=head-&gt;next;</span><br><span class="line">	LNode *min=head-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(p)&#123;</span><br><span class="line">		<span class="keyword">if</span>(p-&gt;data&lt;min-&gt;data)&#123;</span><br><span class="line">			min=p;</span><br><span class="line">			premin=pre;</span><br><span class="line">		&#125;</span><br><span class="line">		pre=p;</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> premin;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将最小值插入合适位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelctionSort</span><span class="params">(LNode *rear, LNode *premin)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	LNode *min=premin-&gt;next;</span><br><span class="line">	<span class="keyword">if</span>(min==<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	premin-&gt;next=min-&gt;next;</span><br><span class="line">	min-&gt;next=rear-&gt;next;</span><br><span class="line">	rear-&gt;next=min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter1/1.2.13.c" target="_blank" rel="external">1.2.13.c</a></p>
 
       
     </div>
@@ -181,18 +179,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/30/Data structure and Algorithm/第1章第2节练习题13-单链表之选择排序/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/30/Data structure and Algorithm/第1章第2节练习题14-判断子序列/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          第1章第2节练习题13 单链表之选择排序
+          第1章第2节练习题14 判断子序列
         
       </div>
     </a>
   
   
-    <a href="/2016/01/29/Data structure and Algorithm/第1章第2节练习题11-就地逆置单链表/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第1章第2节练习题11 就地逆置单链表 </div>
+    <a href="/2016/01/29/Data structure and Algorithm/第1章第2节练习题12-单链表之插入排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第1章第2节练习题12 单链表之插入排序</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
