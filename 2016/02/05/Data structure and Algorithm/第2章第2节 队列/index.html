@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>第2章第2节 队列 | 白日梦想家</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要：设有两个栈s1,s2都采用顺序栈方式，并且共享一个存储区[0,…,MaxSize-1]，为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的方式。试设计s1,s2有关入栈和出栈的操作算法…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第2章第2节 队列">
+<meta property="og:url" content="http://yoursite.com/2016/02/05/Data structure and Algorithm/第2章第2节 队列/index.html">
+<meta property="og:site_name" content="白日梦想家">
+<meta property="og:description" content="摘要：设有两个栈s1,s2都采用顺序栈方式，并且共享一个存储区[0,…,MaxSize-1]，为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的方式。试设计s1,s2有关入栈和出栈的操作算法…">
+<meta property="og:image" content="http://img.blog.csdn.net/20160115152616407">
+<meta property="og:image" content="http://img.blog.csdn.net/20160115154103494">
+<meta property="og:image" content="http://img.blog.csdn.net/20160115154501244">
+<meta property="og:image" content="http://img.blog.csdn.net/20160115154537880">
+<meta property="og:updated_time" content="2016-02-29T13:11:54.303Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第2章第2节 队列">
+<meta name="twitter:description" content="摘要：设有两个栈s1,s2都采用顺序栈方式，并且共享一个存储区[0,…,MaxSize-1]，为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的方式。试设计s1,s2有关入栈和出栈的操作算法…">
+  
+    <link rel="alternative" href="/atom.xml" title="白日梦想家" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://apktool.github.io/uploads/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">呃，无名</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/apktool" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">呃，无名</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://apktool.github.io/uploads/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">呃，无名</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/apktool" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Data structure and Algorithm/第2章第2节 队列" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/05/Data structure and Algorithm/第2章第2节 队列/" class="article-date">
+  	<time datetime="2016-02-05T08:00:00.000Z" itemprop="datePublished">2016-02-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第2章第2节 队列
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/队列/">队列</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据结构和算法/">数据结构和算法</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：设有两个栈s1,s2都采用顺序栈方式，并且共享一个存储区[0,…,MaxSize-1]，为了尽量利用空间，减少溢出的可能，可采用栈顶相向，迎面增长的方式。试设计s1,s2有关入栈和出栈的操作算法…</p>
+<a id="more"></a>
+<p>关于队列的基本定义已经在<a href="http://apktool.github.io/2016/02/03/Data structure and Algorithm/第2章受限的线性表/#t3/" target="_blank" rel="external">第2章栈和队列以及串</a>中说到了，与<a href="http://apktool.github.io/2016/02/03/Data structure and Algorithm/第2章第1节 栈/" target="_blank" rel="external">栈</a>类似，同样有使用顺序结构存储的队列（这里简称顺序队列）和链式结构存储的队列（ 这里简称链队列）。</p>
+<h1 id="u4E00-__u987A_u5E8F_u961F_u5217"><a href="#u4E00-__u987A_u5E8F_u961F_u5217" class="headerlink" title="一. 顺序队列"></a>一. 顺序队列</h1><h2 id="1-1_u5B9A_u4E49"><a href="#1-1_u5B9A_u4E49" class="headerlink" title="1.1定义"></a>1.1定义</h2><p>队列的顺序实现是指分配一块连续的存储单元用于存放队列中的元素，并附设两个指针front和rear分别指示头元素和队尾元素。设队头指针指向队头元素的位置，队尾指针指向队尾元素的下一个位置。</p>
+<p>队列的顺序存储类型则可以描述为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MaxSize <span class="number">50</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">	ElemType data[MaxSize];</span><br><span class="line">	<span class="keyword">int</span> front,rear;</span><br><span class="line">&#125;SqQueue;</span><br></pre></td></tr></table></figure>
+<p>这里对顺序队列的判断条件进行说明。</p>
+<blockquote>
+<ul>
+<li>队空条件：Q.front==Q.rear==0</li>
+<li>队满条件：<del>Q.rear==MaxSize</del></li>
+</ul>
+</blockquote>
+<p>这里应当注意到，上述判断队满条件实际是不正确的，比如当front指向队尾元素，而rear的值刚好等于MaxSize。<br>此时从$data[0]$到$data[MaxSize-2]$的所有元素中，均没有存储任何元素，但是根据上述判断条件却“已满”，造成“假溢出”。<br>为了解决这个问题，常见的有两种解决方法。</p>
+<blockquote>
+<ol>
+<li>将队列元素向前“平移”重新占用0至rear-front-1的空间</li>
+<li>将队列看成首尾相连的循环队列</li>
+</ol>
+</blockquote>
+<p>因为平移会浪费大量的无用时间，因此一般使用循环队列解决判断是否队满的问题。</p>
+<h1 id="u4E8C-_u5FAA_u73AF_u961F_u5217"><a href="#u4E8C-_u5FAA_u73AF_u961F_u5217" class="headerlink" title="二.循环队列"></a>二.循环队列</h1><h2 id="2-1_u5B9A_u4E49"><a href="#2-1_u5B9A_u4E49" class="headerlink" title="2.1定义"></a>2.1定义</h2><p>循环队列将一个顺序队列“臆造”成一个环状的空间，即把存储队列元素的表从逻辑上看成一个环，物理上依旧使用顺序存储结构。<br>在引入循环队列的同时，也引入判断队列是否为空或满的三种常见方法。</p>
+<p> <strong>1). 牺牲一个单元来区分队空和队满</strong></p>
+<blockquote>
+<ul>
+<li>队空条件：Q.front==Q.rear</li>
+<li>队满条件：(Q.rear+1)%MaxSize==Q.front</li>
+<li>队列中元素的个数：(Q.rear-Q.front+MaxSize)%MaxSize</li>
+</ul>
+</blockquote>
+<p><strong>2). 增设表示元素个数的数据成员size</strong></p>
+<blockquote>
+<p>队空条件：Q.size==0<br>队满条件：Q.size=MaxSize<br>队列中元素的个数：Q.size</p>
+</blockquote>
+<p><strong>3). 增设数据成员标志tag</strong></p>
+<blockquote>
+<p>队空条件：Q.tag==0&amp;&amp;Q.front==Q.rear<br>队满条件：Q.tag==1&amp;&amp;Q.front==Q.rear</p>
+</blockquote>
+<h2 id="2-2_u57FA_u672C_u64CD_u4F5C"><a href="#2-2_u57FA_u672C_u64CD_u4F5C" class="headerlink" title="2.2基本操作"></a>2.2基本操作</h2><p>初始化操作，完成对队首指针和队尾指针的复位操作。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitQueue</span><span class="params">(SqQueue* Q)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	Q-&gt;front=<span class="number">0</span>;</span><br><span class="line">	Q-&gt;rear=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>入队操作，因为队列中规定队尾指针指向队尾元素的下一个位置，因此在入队后需对队尾指针自增1。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">EnQueue</span><span class="params">(SqQueue* Q, ElemType x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>((Q-&gt;rear+<span class="number">1</span>)%MaxSize==Q-&gt;front)&#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Q-&gt;data[Q-&gt;rear]=x;</span><br><span class="line">	Q-&gt;rear=(Q-&gt;rear+<span class="number">1</span>)%MaxSize;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>出队操作，如果队空则返回-1；否则返回数据元素。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DeQueue</span><span class="params">(SqQueue* Q, ElemType* x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(Q-&gt;rear==Q-&gt;front)&#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	*x=Q-&gt;data[Q-&gt;front];</span><br><span class="line">	Q-&gt;front=(Q-&gt;front+<span class="number">1</span>)%MaxSize;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>判断队列是否为空，若为空则返回0；否则返回-1。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QueueEmpty</span><span class="params">(SqQueue* Q)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(Q-&gt;rear==Q-&gt;front)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> 	-<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="u4E09-_u94FE_u961F_u5217"><a href="#u4E09-_u94FE_u961F_u5217" class="headerlink" title="三.链队列"></a>三.链队列</h1><h2 id="3-1_u5B9A_u4E49"><a href="#3-1_u5B9A_u4E49" class="headerlink" title="3.1定义"></a>3.1定义</h2><p>采用单链表结构存储的队列称为链队列。它同时带有指向队头结点的指针点和指向队尾结点的尾结点，一般为了方便在队头取出元素和在队尾中添加元素，故一般采用待有头节点的单链表。<br>如图所示：<br><img src="http://img.blog.csdn.net/20160115152616407" alt="链队列"></p>
+<p>这里对链队列的判断条件进行说明。</p>
+<blockquote>
+<ul>
+<li>队空条件：Q.front==Q.rear</li>
+</ul>
+</blockquote>
+<p>队列的链式存储类型则可以描述为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> LNode&#123;</span><br><span class="line">	ElemType data;</span><br><span class="line">	<span class="keyword">struct</span> LNode *next;</span><br><span class="line">&#125;LNode,*LinkList;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">	LNode *front;</span><br><span class="line">	LNode *rear;</span><br><span class="line">&#125;LinkQueue;</span><br></pre></td></tr></table></figure>
+<p>链队特别适合元素数据变化比较大和需要同时使用多个队列的情形，因为不会存在由于队满而溢出的问题。</p>
+<h2 id="3-2_u57FA_u672C_u64CD_u4F5C"><a href="#3-2_u57FA_u672C_u64CD_u4F5C" class="headerlink" title="3.2基本操作"></a>3.2基本操作</h2><p>初始化操作。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitQueue</span><span class="params">(LinkQueue *Q)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	Q-&gt;front=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">	Q-&gt;rear=Q-&gt;front;</span><br><span class="line">	Q-&gt;front-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>判断队列是否为空，如若为空，则返回0；否则返回-1。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QueueEmpty</span><span class="params">(LinkQueue *Q)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(Q-&gt;front==Q-&gt;rear)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>入队操作，创建新的结点，然后插入队尾<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EnQueue</span><span class="params">(LinkQueue *Q, ElemType x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	LNode *s;</span><br><span class="line">	s=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">	s-&gt;data=x;</span><br><span class="line">	Q-&gt;rear-&gt;next=s;</span><br><span class="line">	Q-&gt;rear=s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>出队操作，如果队列为空，则返回-1；若不为空，则返回0。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DeQueue</span><span class="params">(LinkQueue *Q, ElemType *x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	LNode *p;</span><br><span class="line">	<span class="keyword">if</span>(Q-&gt;front==Q-&gt;rear)&#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	p=Q-&gt;front-&gt;next;</span><br><span class="line">	*x=p-&gt;data;</span><br><span class="line">	Q-&gt;front-&gt;next=p-&gt;next;</span><br><span class="line">	<span class="keyword">if</span>(Q-&gt;rear==p)&#123;</span><br><span class="line">		Q-&gt;rear=Q-&gt;front;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(p);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="u56DB-_u53CC_u7AEF_u961F_u5217"><a href="#u56DB-_u53CC_u7AEF_u961F_u5217" class="headerlink" title="四.双端队列"></a>四.双端队列</h1><h2 id="4-1_u5B9A_u4E49"><a href="#4-1_u5B9A_u4E49" class="headerlink" title="4.1定义"></a>4.1定义</h2><p>双端队列是允许两端都可以进行入队和出队操作的队列。</p>
+<p>在双端队列进队时，前端进的元素排列在队列中后端进的元素的前面，后端进的元素排列在队列中前端进的元素的后面。在双端队列出队时，无论前端还是后端出队，先出的元素排列在后出的元素的前面。如下图所示：<br><img src="http://img.blog.csdn.net/20160115154103494" alt="双端队列"></p>
+<p>输出受限的双端队列：允许在一端进行插入和删除，但在另一端只允许插入的双端队列 称为输出受限的双端队列。如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160115154501244" alt="输出受限的双端队列"></p>
+<p>输入受限的双端队列：允许在一端进行插入和删除，但在另一端只允许删除的双端队列，而如果限定双端队列从某个端点插入的元素只 能从该端点删除，则该双端队列就蜕变为两个栈底相邻接的栈了。如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20160115154537880" alt="输入受限的双端队列"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/05/Data structure and Algorithm/第2章第2节练习题1 逆置队列/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          第2章第2节练习题1 逆置队列
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/04/Data structure and Algorithm/第2章第1节练习题3 共享栈的基本操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第2章第1节练习题3 共享栈的基本操作</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 呃，无名
+    	</div>
+      	<div class="footer-right">
+      		Driven by hexo | Theme-Yilia
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
