@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>第2章第3节练习题2 串的模式匹配(KMP) | 白日梦想家</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要：设有主串S和子串T，子串T的定位就是要在主串S中找到一个与子串T相等的子串…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第2章第3节练习题2 串的模式匹配(KMP)">
+<meta property="og:url" content="http://yoursite.com/2016/02/06/第2章第3节练习题2 串的模式匹配(KMP)/index.html">
+<meta property="og:site_name" content="白日梦想家">
+<meta property="og:description" content="摘要：设有主串S和子串T，子串T的定位就是要在主串S中找到一个与子串T相等的子串…">
+<meta property="og:updated_time" content="2016-03-01T13:52:57.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第2章第3节练习题2 串的模式匹配(KMP)">
+<meta name="twitter:description" content="摘要：设有主串S和子串T，子串T的定位就是要在主串S中找到一个与子串T相等的子串…">
+  
+    <link rel="alternative" href="/atom.xml" title="白日梦想家" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://apktool.github.io/uploads/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">呃，无名</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/apktool" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">呃，无名</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://apktool.github.io/uploads/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">呃，无名</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/apktool" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-第2章第3节练习题2 串的模式匹配(KMP)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/06/第2章第3节练习题2 串的模式匹配(KMP)/" class="article-date">
+  	<time datetime="2016-02-06T10:00:00.000Z" itemprop="datePublished">2016-02-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第2章第3节练习题2 串的模式匹配(KMP)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/串/">串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据结构和算法/">数据结构和算法</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：设有主串S和子串T，子串T的定位就是要在主串S中找到一个与子串T相等的子串…</p>
+<a id="more"></a>
+<h1 id="u95EE_u9898_u63CF_u8FF0"><a href="#u95EE_u9898_u63CF_u8FF0" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
+<p>设有主串S和子串T，子串T的定位就是要在主串S中找到一个与子串T相等的子串。</p>
+</blockquote>
+<h1 id="u7B97_u6CD5_u7B80_u8FF0"><a href="#u7B97_u6CD5_u7B80_u8FF0" class="headerlink" title="算法简述"></a>算法简述</h1><blockquote>
+<p>在<a href="http://apktool.github.io/2016/01/30/Data structure and Algorithm/第2章第3节练习题1 串的模式匹配(Naive" target="_blank" rel="external">第2章第3节练习题1 串的模式匹配(Naive)</a>/)中的算法是最简单的模式匹配算法，但是该种算法每当匹配失败时，对主串已经匹配过的字符又需要重新匹配一次，时间复杂度为$O(n^2)$。因此这里引入了KMP算法。KMP算法与<a href="http://apktool.github.io/2016/01/30/Data structure and Algorithm/第2章第3节练习题1 串的模式匹配(Naive" target="_blank" rel="external">第2章第3节练习题1 串的模式匹配(Naive) </a>/)中算法最大的不同便是重新创建了一张跳转表，而且使得主串仅可以访问一次，子串可以一次跨过多个元素进行比较。为了从总体上来说明该算法，这里举个例子：</p>
+<p>主串S：babcbabcabcaabcabcabcacabc<br>子串T：abcabcacab</p>
+</blockquote>
+<p>在有些书中将子串T也称为模式串，但这都不重要，本讲解称其为子串。首先给出经过优化后的跳转表（next），从整体上简单的梳理下执行过程。</p>
+<ul>
+<li><strong>跳转表（next）</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">j</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>next[j]</strong></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T[j]</strong></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+</tbody>
+</table>
+<p><br><br>跳转表最大的特色就是决定了子串一次性可以跳过多少个元素与主串进行比较，跳转表的作用是前<em><code>next[j]-1</code></em>个元素组成的字符串和第j号元素之前(不包括第j号元素)的<em><code>next[j]-1</code></em>个字符串相等，这么听起来比较抽象，举个简单的例子说明下，比如以 $j=8$为例。</p>
+<blockquote>
+<p>当$j=8$时，查得next[8]=5，则可以推出前4个元素和第8号(不包括第8号元素)元素前面的4个元素相等。<br>即：T[1]T[2]T[3]T[4]组成的字符串“abca”与T[4]T[5]T[6]T[7]组成的字符串“abcd”相等。<br>这里简写为T$<em>{1,2,3,4}$=T$</em>{4,5,6,7}$<br>不失一般性，进行一次推广，得到广义的公式。这里令k=next[j]，即</p>
+<blockquote>
+<p>T$<em>{1,2,…,k-1}$==T$</em>{j-(k-1),j-(k-2),…,j-1}$</p>
+</blockquote>
+</blockquote>
+<ul>
+<li><strong>执行过程</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">i</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+<th style="text-align:center">11</th>
+<th style="text-align:center">12</th>
+<th style="text-align:center">13</th>
+<th style="text-align:center">14</th>
+<th style="text-align:center">15</th>
+<th>16</th>
+<th style="text-align:center">17</th>
+<th style="text-align:center">18</th>
+<th style="text-align:center">19</th>
+<th style="text-align:center">20</th>
+<th style="text-align:center">21</th>
+<th style="text-align:center">22</th>
+<th style="text-align:center">22</th>
+<th style="text-align:center">23</th>
+<th>24</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>S[i]</strong></td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td>b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td>c</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td>b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td>b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>这里应该特别注意的是主串和子串的下标标号方式不同，<strong>主串下标从0开始，子串下标从1开始</strong>。</p>
+<blockquote>
+<ul>
+<li>第一轮比较中，T[1]!=S[0]，查找跳转表得<code>next[1]=0</code>此时便可以得出子串的第一个元素与此时主串的元素不匹配，对主串的下一个元素进行比较；</li>
+<li>进入第二轮比较，当比较到T[4]时，发现T[4]!=S[4]，查找跳转表得<code>next[4]=0</code>，原因同上，对主串的下一个元素进行比较；</li>
+<li>进入第三轮比较，当比较到T[8]时，发现T[8]!=S[12]，查找跳转表得<code>next[8]=5</code>，进入下一轮比较；</li>
+<li>进入第四轮比较，由上轮比较中得到<code>next[8]=5</code>，比较T[5]与S[12]，结果发现T[5]!=S[12]，查找跳转表得<code>next[5]=1</code>，进入下轮比较；</li>
+<li>进入第五轮比较，由上轮比较中得到<code>next[5]=1</code>，比较T[1]与S[12]，然后发现T[1]=S[12]，开始挨个比较，比较到T[8]时，发现T[8]!=S[19]，查找跳转表得<code>next[8]=5</code>，进入下轮比较；</li>
+<li>进入第六轮比较，由上轮比较中查找过程得到<code>next[8]=5</code>，比较T[5]与S[19]，结果发现T[5]=S[19]，开始逐个比较；</li>
+<li>最后子串T与主串S全部比较完成，返回结果。</li>
+</ul>
+</blockquote>
+<p>这里便可以推出KMP算法的核心执行步骤为：</p>
+<blockquote>
+<ul>
+<li>如果j==0，则表明子串的第一个元素不满足，则将主串的下一个元素与子串的第一个元素相比；</li>
+<li>如果S[i]==T[j]则开始比较下一个元素，即S[i+1]与T[j+1]；</li>
+<li>如果不相等，则比较S[i]与T[next[j]]；</li>
+</ul>
+</blockquote>
+<h1 id="u7B97_u6CD5_u8BE6_u89E3"><a href="#u7B97_u6CD5_u8BE6_u89E3" class="headerlink" title="算法详解"></a>算法详解</h1><p>在<code>算法简述</code>中，简单的梳理了下执行流程，也推出了KMP算法的核心步骤，与<a href="http://apktool.github.io/2016/01/30/Data structure and Algorithm/第2章第3节练习题1 串的模式匹配(Naive" target="_blank" rel="external">第2章第3节练习题1 串的模式匹配(Naive)</a>)并无太大差异，只是如果不相等的时候，并不需要对主串S的下标重置，而是对子串T进行移位便可。而真正的难点便是建立跳转表（next），因为满足跳转表（next）的元素有一个非常重要的特性便是：</p>
+<blockquote>
+<p>T$<em>{1,2,…,k-1}$==T$</em>{j-(k-1),j-(k-2),…,j-1}$</p>
+</blockquote>
+<p>而且由上面的特性很容易发现，当第j号元素与主串相应的元素“失配”时，才需要在子串中重新置位与主串再次相比，这里便引出跳转表（next）的定义：</p>
+<p>$next[j]$ =<br>\begin{cases}<br>0,  &amp; \text{$j=1$ } \[2ex]<br>\max{k|1 \lt k \lt j},  &amp; \text{T$<em>{1,2,…,k-1}$==T$</em>{j-(k-1),j-(k-2),…,j-1}$} \[2ex]<br>1,  &amp; \text{Other} \[2ex]<br>\end{cases}</p>
+<h2 id="u601D_u60F31"><a href="#u601D_u60F31" class="headerlink" title="思想1"></a>思想1</h2><p>那么根据上述定义，对子串T，进行分析，很容易发现定义中涉及到了子串自身的比较，即子串在求解跳转表时既作主串又作子串，而且比较的正是T$<em>{1,2,…,k-1}$?=T$</em>{j-(k-1),j-(k-2),…,j-1}$。既然这样继续以本文前面列出的子串T为例。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">j</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>T[j]</strong></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+</tbody>
+</table>
+<p>根据定义对子串T进行展开，可以得到下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">j</th>
+<th style="text-align:center">k</th>
+<th style="text-align:center">$=$ or $\neq$</th>
+<th style="text-align:right">next[j]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">若 j=1</td>
+<td style="text-align:center">k=0</td>
+<td style="text-align:center"></td>
+<td style="text-align:right">next[1]=0</td>
+</tr>
+<tr>
+<td style="text-align:left">若 j=2</td>
+<td style="text-align:center">k=1</td>
+<td style="text-align:center"></td>
+<td style="text-align:right">next[2]=1</td>
+</tr>
+<tr>
+<td style="text-align:left">若 j=3</td>
+<td style="text-align:center">k=2</td>
+<td style="text-align:center">a$\neq$b</td>
+<td style="text-align:right">next[3]=1</td>
+</tr>
+<tr>
+<td style="text-align:left">若 j=4</td>
+<td style="text-align:center">k=2</td>
+<td style="text-align:center">a$\neq$c</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=3</td>
+<td style="text-align:center">ab$\neq$bc</td>
+<td style="text-align:right">next[4]=1</td>
+</tr>
+<tr>
+<td style="text-align:left">若 j=5</td>
+<td style="text-align:center">k=2</td>
+<td style="text-align:center">a$=$a</td>
+<td style="text-align:right">next[5]=2</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=3</td>
+<td style="text-align:center">ab$\neq$ca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=4</td>
+<td style="text-align:center">abc$\neq$bca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left">若 j=6</td>
+<td style="text-align:center">k=2</td>
+<td style="text-align:center">a$\neq$b</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=3</td>
+<td style="text-align:center">ab$=$ab</td>
+<td style="text-align:right">next[6]=3</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=4</td>
+<td style="text-align:center">abc$\neq$cab</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=5</td>
+<td style="text-align:center">abca$\neq$bcab</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left">若 j=7</td>
+<td style="text-align:center">k=2</td>
+<td style="text-align:center">a$\neq$c</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=3</td>
+<td style="text-align:center">ab$\neq$bc</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=4</td>
+<td style="text-align:center">abc$=$abc</td>
+<td style="text-align:right">next[7]=4</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=5</td>
+<td style="text-align:center">abca$\neq$cabc</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=6</td>
+<td style="text-align:center">abcab$\neq$bcabc</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left">若 j=8</td>
+<td style="text-align:center">k=2</td>
+<td style="text-align:center">a$=$a</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=3</td>
+<td style="text-align:center">ab$\neq$ca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=4</td>
+<td style="text-align:center">abc$\neq$bca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=5</td>
+<td style="text-align:center">abca$=$abca</td>
+<td style="text-align:right">next[7]=5</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=6</td>
+<td style="text-align:center">abcab$\neq$cabca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=7</td>
+<td style="text-align:center">abcabc$\neq$bcabca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left">若 j=9</td>
+<td style="text-align:center">k=2</td>
+<td style="text-align:center">a$\neq$c</td>
+<td style="text-align:right">next[9]=1</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=3</td>
+<td style="text-align:center">ab$\neq$ac</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=4</td>
+<td style="text-align:center">abc$\neq$cac</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=5</td>
+<td style="text-align:center">abca$\neq$bcac</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=6</td>
+<td style="text-align:center">abcab$\neq$abcac</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=7</td>
+<td style="text-align:center">abcabc$\neq$cabcac</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=8</td>
+<td style="text-align:center">abcabca$\neq$bcabcac</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left">若 j=10</td>
+<td style="text-align:center">k=2</td>
+<td style="text-align:center">a$=$a</td>
+<td style="text-align:right">next[10]=2</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=3</td>
+<td style="text-align:center">ab$\neq$ca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=4</td>
+<td style="text-align:center">abc$\neq$aca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=5</td>
+<td style="text-align:center">abca$\neq$caca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=6</td>
+<td style="text-align:center">abcab$\neq$bcaca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=7</td>
+<td style="text-align:center">abcabc$\neq$abcaca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=8</td>
+<td style="text-align:center">abcabca$\neq$cabcaca</td>
+<td style="text-align:right"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">k=9</td>
+<td style="text-align:center">abcabcac$\neq$bcabcaca</td>
+</tr>
+</tbody>
+</table>
+<p>整理下可得跳转表（next）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">j</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>next[j]</strong></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<p>根据定义和上述求解过程，很容易想到用暴力方法强解此题。算法描述如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildNext</span><span class="params">(String* T, <span class="keyword">int</span> next[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp[MaxSize]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span> k,i,max;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=T-&gt;length;j++)&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;j;k++)&#123;</span><br><span class="line"></span><br><span class="line">			i=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span>(T-&gt;data[i]==T-&gt;data[j-k+i]&amp;&amp;i&lt;k-<span class="number">1</span>)&#123;</span><br><span class="line">				++i;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(i==k-<span class="number">1</span>)&#123;</span><br><span class="line">				temp[k]=k;	</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				temp[k]=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		max=temp[<span class="number">1</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> cnt=<span class="number">1</span>;cnt&lt;k;cnt++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(max&lt;temp[cnt])&#123;</span><br><span class="line">				max=temp[cnt];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		next[j]=max;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种解法的缺点也非常明显，时间复杂度达到了惊人的$O(n^2)$，这样的算法计算跳转表的效率明显比较低下。</p>
+<h2 id="u601D_u60F32"><a href="#u601D_u60F32" class="headerlink" title="思想2"></a>思想2</h2><p>跳转表的存在的意义就是运用字符串本身的特点对下标进行置位，而满足跳转表条件的若干（k-1）个连续字符T$<em>{1,2,…,k-1}$必然等于T$</em>{j-(k-1),j-(k-2),…,j-1}$，这样实际上就变成了将串T既看做主串又看做子串T然后进行一次比较的过程，过程描述如下：</p>
+<blockquote>
+<ul>
+<li>主串T[2]与子串T[1]相比较，结果不相等，将next[3]置为1；</li>
+<li>主串T[3]与子串T[1]相比较，结果不相等，将next[4]置为1；</li>
+<li>主串T[4]与子串T[1]相比较，结果相等，将next[5]置为2；</li>
+<li>以此类推，得到next[8]=5，此时T[8]与子串T[5]，此时不相等，则不能得到next[9]；</li>
+<li>然后取出next[8]，使子串T[next[8]]与主串T[8]相比，结果依旧不相等；然后再取出next[5]，让子串T[next[5]]与主串T[8]相比，结果依旧不相等；接着取出next[2]，让子串T[next[2]]（即子串T[1]）与主串T[8]相比，结果依旧不相等；此时将next[9]置1；</li>
+<li>最后主串T[9]与子串T[1]相比，结果相等，则将next[10]置为2。</li>
+</ul>
+</blockquote>
+<p>为了更为形象的说明上面的描述，再次具体化以上过程 ，如下所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">i</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+</tbody>
+</table>
+<p>扼要的总结下思想：</p>
+<blockquote>
+<p>令k=next[j]<br>若T[k]==T[j]，则有T$<em>{1,2,…,k}$==T$</em>{j-(k-1),j-(k-2),…,j}$；也就是说next[j+1]=next[j]+1<br>若T[k]！=T[j]时，便是一个回溯的过程，是求跳转表的难点，可以参考上面的过程理解。</p>
+</blockquote>
+<p>这样 便通过将串T既看做子串又看做主串的方式进行比较，从而得到了跳转表，如下所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">j</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>next[j]</strong></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T[j]</strong></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>根据上面的过程，可以写出该算法的扼要过程，如下所示：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildNext</span><span class="params">(String* T, <span class="keyword">int</span> next[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line"></span><br><span class="line">    i=<span class="number">1</span>;</span><br><span class="line">    j=<span class="number">0</span>;</span><br><span class="line">    next[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(i&lt;T-&gt;length)&#123;</span><br><span class="line">		<span class="keyword">if</span>(T-&gt;data[i]==T-&gt;data[j]||j==<span class="number">0</span>)&#123;</span><br><span class="line">			++i;</span><br><span class="line">			++j;</span><br><span class="line">			next[i]=j;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			j=next[j];</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后再将主串S和子串T从头比较一次，熟悉下整个流程，过程如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">i</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+<th style="text-align:center">11</th>
+<th style="text-align:center">12</th>
+<th style="text-align:center">13</th>
+<th style="text-align:center">14</th>
+<th style="text-align:center">15</th>
+<th style="text-align:center">16</th>
+<th style="text-align:center">17</th>
+<th style="text-align:center">18</th>
+<th style="text-align:center">19</th>
+<th style="text-align:center">20</th>
+<th style="text-align:center">21</th>
+<th style="text-align:center">22</th>
+<th style="text-align:center">22</th>
+<th>23</th>
+<th>24</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>S[i]</strong></td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td>b</td>
+<td>c</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td>b</td>
+</tr>
+</tbody>
+</table>
+<h2 id="u601D_u60F33"><a href="#u601D_u60F33" class="headerlink" title="思想3"></a>思想3</h2><p>上面虽然已经完成了建立跳转表，使用KMP算法完成了子串的查找，但是通过分析就可以发现，建立跳转表完全可以再优化一次，即一步到位。</p>
+<blockquote>
+<ul>
+<li>主串S[4]与子串T[4]完全可以不需要，因为T[4]==T[1]，已经判断出T[4]!=S[4]，也就无需在额外的判断T[1]!=S[4]了；</li>
+<li>主串S[12]与子串T[2]亦完全可以不要 ，原因同上，已知T[5]==T[2] ，也就无需判断T[2] !=S[12]了；</li>
+</ul>
+</blockquote>
+<p>先对跳转表完成优化，如下所示：</p>
+<ul>
+<li><strong>跳转表（next）</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">j</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>next[j]</strong></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T[j]</strong></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<ul>
+<li><strong>执行过程</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">i</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+<th style="text-align:center">11</th>
+<th style="text-align:center">12</th>
+<th style="text-align:center">13</th>
+<th style="text-align:center">14</th>
+<th style="text-align:center">15</th>
+<th>16</th>
+<th style="text-align:center">17</th>
+<th style="text-align:center">18</th>
+<th style="text-align:center">19</th>
+<th style="text-align:center">20</th>
+<th style="text-align:center">21</th>
+<th style="text-align:center">22</th>
+<th style="text-align:center">22</th>
+<th style="text-align:center">23</th>
+<th>24</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>S[i]</strong></td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td>b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td>c</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td>b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">a</td>
+<td>b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">c</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>对上述过程进行总结，完成对算法的优化，描述如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildNext</span><span class="params">(String* T, <span class="keyword">int</span> next[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line"></span><br><span class="line">    i=<span class="number">1</span>;</span><br><span class="line">    j=<span class="number">0</span>;</span><br><span class="line">    next[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(i&lt;T-&gt;length)&#123;</span><br><span class="line">		<span class="keyword">if</span>(T-&gt;data[i]==T-&gt;data[j]||j==<span class="number">0</span>)&#123;</span><br><span class="line">			++i;</span><br><span class="line">			++j;</span><br><span class="line">			<span class="keyword">if</span>(T-&gt;data[i]!=T-&gt;data[j])&#123;</span><br><span class="line">				next[i]=j;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				next[i]=next[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			j=next[j];</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至此，KMP算法的讲解算是完成了，那么这里顺便简单的分析下时间复杂度，求解跳转表（next）时仅仅对子串T进行了一次遍历；在KMP算法中，仅对主串S进行了一次遍历；假设主串长为n，子串长为m，则时间复杂度明显为$O(m+n)$。</p>
+<p>具体代码见<a href="https://github.com/apktool/Data-Structures-and-Algorithms/blob/master/chapter2/2.3.2.c" target="_blank" rel="external">2.3.2.c</a></p>
+<hr>
+<p>参考文献<br>Knuth D E, Morris J H, Pratt V R. Fast Pattern Matching in Strings.[J]. Siam Journal on Computing, 1977, 6(2):323-350.<br>参考Blog<br><a href="http://blog.csdn.net/joylnwang/article/details/6778316" target="_blank" rel="external">http://blog.csdn.net/joylnwang/article/details/6778316</a><br><a href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/06/Data structure and Algorithm/第2章第3节练习题2 串的模式匹配(KMP)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          第2章第3节练习题2 串的模式匹配(KMP)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/06/Data structure and Algorithm/第2章第3节练习题1 串的模式匹配(Naive)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第2章第3节练习题1 串的模式匹配(Naive)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 呃，无名
+    	</div>
+      	<div class="footer-right">
+      		Driven by hexo | Theme-Yilia
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

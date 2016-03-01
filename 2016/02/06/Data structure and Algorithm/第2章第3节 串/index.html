@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>第2章第3节 串 | 白日梦想家</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="摘要：串的定义，分类，基本操作等……">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第2章第3节 串">
+<meta property="og:url" content="http://yoursite.com/2016/02/06/Data structure and Algorithm/第2章第3节 串/index.html">
+<meta property="og:site_name" content="白日梦想家">
+<meta property="og:description" content="摘要：串的定义，分类，基本操作等……">
+<meta property="og:updated_time" content="2016-03-01T12:08:33.879Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第2章第3节 串">
+<meta name="twitter:description" content="摘要：串的定义，分类，基本操作等……">
+  
+    <link rel="alternative" href="/atom.xml" title="白日梦想家" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://apktool.github.io/uploads/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">呃，无名</a></h1>
+		</hgroup>
+
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/apktool" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">呃，无名</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://apktool.github.io/uploads/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">呃，无名</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/apktool" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Data structure and Algorithm/第2章第3节 串" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/06/Data structure and Algorithm/第2章第3节 串/" class="article-date">
+  	<time datetime="2016-02-06T08:00:00.000Z" itemprop="datePublished">2016-02-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第2章第3节 串
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/串/">串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/数据结构和算法/">数据结构和算法</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：串的定义，分类，基本操作等……</p>
+<a id="more"></a>
+<p>关于串的基本定义已经在<a href="http://apktool.github.io/2016/02/03/Data structure and Algorithm/第2章受限的线性表/#t6" target="_blank" rel="external">第2章受限的线性表</a>中介绍过了，与栈和队列类似，同样存在顺序结构存储的串（这里简称顺序串）和链式结构存储的串（这里简称链串）。</p>
+<h1 id="u4E00-_u987A_u5E8F_u4E32"><a href="#u4E00-_u987A_u5E8F_u4E32" class="headerlink" title="一.顺序串"></a>一.顺序串</h1><h2 id="1-1_u5B9A_u4E49"><a href="#1-1_u5B9A_u4E49" class="headerlink" title="1.1定义"></a>1.1定义</h2><p>串的顺序实现是指分配一块连续的存储单元用于串中的元素，并附设表示串长度的标志。<br>串的顺序结构存储可以描述为：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> ElemType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">	ElemType data[MaxSize];</span><br><span class="line">	<span class="keyword">int</span> length;</span><br><span class="line">&#125;String;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-2_u57FA_u672C_u64CD_u4F5C"><a href="#1-2_u57FA_u672C_u64CD_u4F5C" class="headerlink" title="1.2基本操作"></a>1.2基本操作</h2><h3 id="1-2-1_u521B_u5EFA_u4E32"><a href="#1-2-1_u521B_u5EFA_u4E32" class="headerlink" title="1.2.1创建串"></a>1.2.1创建串</h3><p>输入字符元素，以“#”号作为结束标志。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">StrCreat</span><span class="params">(String* S)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> x;</span><br><span class="line">	S-&gt;length=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Input String_S(End of '#'!):\n"</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;x);</span><br><span class="line">	<span class="keyword">while</span>(x!=<span class="string">'#'</span>)&#123;</span><br><span class="line">		S-&gt;data[S-&gt;length++]=x;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%c"</span>,&amp;x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-2-2_u6C42_u4E32_u957F_u5EA6"><a href="#1-2-2_u6C42_u4E32_u957F_u5EA6" class="headerlink" title="1.2.2求串长度"></a>1.2.2求串长度</h3><p>因为串的定义中有length变量，只需返回结果便可。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">StrLength</span><span class="params">(String* S)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> S-&gt;length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-2-3_u62F7_u8D1D_u5B57_u7B26_u4E32"><a href="#1-2-3_u62F7_u8D1D_u5B57_u7B26_u4E32" class="headerlink" title="1.2.3拷贝字符串"></a>1.2.3拷贝字符串</h3><p>将字符串S拷贝到字符串T中，对字符串依次访问，同时赋值于字符串T即可完成拷贝。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">StrCopy</span><span class="params">(String* S, String* T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;S-&gt;length;i++)&#123;</span><br><span class="line">		T-&gt;data[i]=S-&gt;data[i];</span><br><span class="line">	&#125;</span><br><span class="line">	T-&gt;length=S-&gt;length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-2-4_u6BD4_u8F83_u5B57_u7B26_u4E32_u5927_u5C0F"><a href="#1-2-4_u6BD4_u8F83_u5B57_u7B26_u4E32_u5927_u5C0F" class="headerlink" title="1.2.4比较字符串大小"></a>1.2.4比较字符串大小</h3><p>字符串大小比较实际是比较ASCII码大小，从左向右依次比较，如果此时哪个字符串的ASCII码值比较大，则返回结果；如果两个字符串长度不相等，但前面若干个字符均相等，则长度大的字符串比较大。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">StrCompare</span><span class="params">(String* S,String* T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(i!=S-&gt;length&amp;&amp;i!=T-&gt;length)&#123;</span><br><span class="line">		<span class="keyword">if</span>(S-&gt;data[i]&lt;T-&gt;data[i])&#123;</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(S-&gt;data[i]&gt;T-&gt;data[i])&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;S-&gt;length)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(i&lt;T-&gt;length)&#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-2-5_u8FDE_u63A5_u5B57_u7B26_u4E32"><a href="#1-2-5_u8FDE_u63A5_u5B57_u7B26_u4E32" class="headerlink" title="1.2.5连接字符串"></a>1.2.5连接字符串</h3><p>将字符串T连接在字符串S后，注意此时S的长度以便，注意修改length变量。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">StrConcat</span><span class="params">(String* S, String* T)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=S-&gt;length;</span><br><span class="line">	<span class="keyword">for</span>(i=i+<span class="number">1</span>;i&lt;S-&gt;length+T-&gt;length;i++)&#123;</span><br><span class="line">		S-&gt;data[i]=T-&gt;data[i-S-&gt;length];</span><br><span class="line">	&#125;</span><br><span class="line">	S-&gt;length=i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-2-6_u4EE5_u4E32S_u4E2Dpos_u4F4D_u7F6E_u5F00_u59CB_u7684len_u4E2A_u5B57_u7B26_u751F_u6210_u5B50_u4E32Sub"><a href="#1-2-6_u4EE5_u4E32S_u4E2Dpos_u4F4D_u7F6E_u5F00_u59CB_u7684len_u4E2A_u5B57_u7B26_u751F_u6210_u5B50_u4E32Sub" class="headerlink" title="1.2.6以串S中pos位置开始的len个字符生成子串Sub"></a>1.2.6以串S中pos位置开始的len个字符生成子串Sub</h3><p>因为采用的是顺序存储结构，可以使用函数随机访问，直接找到pos位置，然后将其后len个字符串均赋值给新的子串T便可。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String* <span class="title">SubString</span><span class="params">(String*S,<span class="keyword">int</span> pos,<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">	String *T;</span><br><span class="line">	T=(String*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(String));</span><br><span class="line">	T-&gt;length=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(pos&gt;S-&gt;length||(pos+len)&gt;S-&gt;length)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Illege Position!\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=pos;i&lt;pos+len;i++)&#123;</span><br><span class="line">		T-&gt;data[T-&gt;length++]=S-&gt;data[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="u4E8C-_u94FE_u4E32"><a href="#u4E8C-_u94FE_u4E32" class="headerlink" title="二.链串"></a>二.链串</h1><h2 id="2-1_u5B9A_u4E49"><a href="#2-1_u5B9A_u4E49" class="headerlink" title="2.1定义"></a>2.1定义</h2><p>采用链式存储的串称为链串。一般采用不带头结点的单链表实现。<br>链串的数据结构描述如下：</p>
+<pre><code class="c"><span class="keyword">typedef</span> <span class="keyword">struct</span> SNode
+{    ElemType data;
+     <span class="keyword">struct</span> SNode *next;
+}String;
+</code></pre>
+<p>因为采用链式存储时的串与<a href="http://apktool.github.io/2016/01/25/Data structure and Algorithm/第1章第2节 线性表的链式表示（1）/" target="_blank" rel="external">第1章线性表的链式表示</a>操作类似，这里便不再详细说明。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/06/Data structure and Algorithm/第2章第3节练习题1 串的模式匹配(Naive)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          第2章第3节练习题1 串的模式匹配(Naive)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/05/Data structure and Algorithm/第2章第2节练习题3 使用队列模拟渡口管理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第2章第2节练习题3 使用队列模拟渡口管理</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 呃，无名
+    	</div>
+      	<div class="footer-right">
+      		Driven by hexo | Theme-Yilia
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
